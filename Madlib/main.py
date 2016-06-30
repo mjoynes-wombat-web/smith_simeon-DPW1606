@@ -16,7 +16,8 @@
 #PRINT OUT STORY
 
 
-#3 Main template strings that makeup the story, one the story, one about getting a drink, one about not being able to afford a drink.
+#VARIABLES---------------------------------------------------------------------------------------------------------------------------------------
+#The main consistent portion of the story.
 main_story = ''' you get up to go and a {british_insult_1} runs right into you.
 "You {british_insult_2}," you shout, "Watch where you're going".
 He turns around, fists clenched, but you deck him before he can even swing.
@@ -25,6 +26,7 @@ The bar keep laughs, passing you a {favorite_drink}.
 At least the day's ending well.
 '''
 
+#If you can get a drink, the part of the story that is used.
 get_drink = '''
 You walk into Yorkshire Pub after a long day.
 You find a quite seat at the bar hoping to blow off some steam.
@@ -32,6 +34,7 @@ You find a quite seat at the bar hoping to blow off some steam.
 "Give me a {favorite_drink}."
 After quitely finising your drink,'''
 
+#If you can't get a drink, the part of the story that's returned.
 no_drink = '''
 You get to your favorite watering hole, the Yorkshire Pub.
 After finding a quite seat you reach into your pocket for some cash to find it empty.
@@ -40,7 +43,22 @@ After finding a quite seat you reach into your pocket for some cash to find it e
 "Ain't that just the way of it." he replies.
 Disappointed,'''
 
-#An array of British insults to insert into the template strings.
+#British Insults
+british_insults = ["wazzok", "lummox", "skiver", "minger", "nincompoop", "pillock", "clod hopper", "dunaker", "git", "wanker"]
+
+#Drinks
+drinks = dict()
+drinks = {
+    "tequila":{"drink":"margarita", "price": 12},
+    "rum":{"drink":"cuba libre", "price":10},
+    "vodka":{"drink":"martini", "price":14},
+    "gin":{"drink":"singapore sling", "price":15},
+    "scotch":{"drink":"scotch, neat", "price":25},
+    "bourbon":{"drink":"old fashioned", "price":18},
+    "whiskey":{"drink":"irish car bomb", "price": 16}
+}
+
+print drinks["tequila"]["drink"]
 
 #A dictionary containing drinks and their prices
 
@@ -72,5 +90,5 @@ Disappointed,'''
 
 #print story
 
-print get_drink + main_story
-print no_drink + main_story
+#print get_drink + main_story
+#print no_drink + main_story
