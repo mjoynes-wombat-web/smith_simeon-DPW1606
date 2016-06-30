@@ -43,28 +43,53 @@ After finding a quite seat you reach into your pocket for some cash to find it e
 "Ain't that just the way of it." he replies.
 Disappointed,'''
 
-#British Insults
+#British Insults Array
 british_insults = ["wazzok", "lummox", "skiver", "minger", "nincompoop", "pillock", "clod hopper", "dunaker", "git", "wanker"]
 
-#Drinks
+#Drinks Dict
 drinks = dict()
 drinks = {
-    "tequila":{"drink":"margarita", "price": 12},
-    "rum":{"drink":"cuba libre", "price":10},
-    "vodka":{"drink":"martini", "price":14},
-    "gin":{"drink":"singapore sling", "price":15},
-    "scotch":{"drink":"scotch, neat", "price":25},
-    "bourbon":{"drink":"old fashioned", "price":18},
-    "whiskey":{"drink":"irish car bomb", "price": 16}
+    "Tequila":{"drink":"margarita", "price": 12},
+    "Rum":{"drink":"cuba libre", "price":10},
+    "Vodka":{"drink":"martini", "price":14},
+    "Gin":{"drink":"singapore sling", "price":15},
+    "Scotch":{"drink":"scotch, neat", "price":25},
+    "Bourbon":{"drink":"old fashioned", "price":18},
+    "Whiskey":{"drink":"irish car bomb", "price": 16}
 }
 
-print drinks["tequila"]["drink"]
 
-#A dictionary containing drinks and their prices
+#ASK FOR FAVORITE LIQUOR FUNCTION
+def fav_liquor():
+    #Variables for function
+    liquors = ["Tequila", "Rum", "Vodka", "Gin", "Scotch", "Bourbon", "Whiskey"]
+    liquor_options = ""
 
-#A prompt asking for the users drinks budget.
+    #Print questions to console
+    print "What's your favorite liquor?"
+    print "Please, select from the options  below."
+    
+    #Setup options for liquor based on liquors variable.
+    for idx, item in enumerate(liquors):
+        liquor_options = liquor_options + str(idx+1) + ") " + item + " "
 
-#A prompt asking for a their favorite liquor.
+    #Print liquor options and allow raw input, making the input a number.
+    liquor = int(raw_input(liquor_options))
+
+
+    if liquor>len(liquors) or liquor<1:
+        print "You didn't select a valid liquor. Please try again.'"
+        fav_liquor()
+    else:
+        return liquors[liquor-1]
+
+favorite_liquor = fav_liquor()
+
+drink_budget = raw_input("What do you think is reasonable for a " + drinks[favorite_liquor]["drink"] + "?")
+
+favorite_letter = raw_input("What is your favorite letter?")
+
+
 
 #Ask the user for their favorite letter.
 
