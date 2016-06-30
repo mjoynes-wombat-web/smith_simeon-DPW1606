@@ -21,7 +21,7 @@
 main_story = ''' you get up to go and a {british_insult_1} runs right into you.
 "You {british_insult_2}," you shout, "Watch where you're going".
 He turns around, fists clenched, but you deck him before he can even swing.
-The bar keep laughs, passing you a {favorite_drink}.
+{name} laughs, passing you a {favorite_drink}.
 "That {british_insult_1} has been giving us plenty of trouble. He needed to be taken down a peg."
 At least the day's ending well.
 '''
@@ -29,27 +29,19 @@ At least the day's ending well.
 #If you can get a drink, the part of the story that is used.
 get_drink = '''
 It's {time} and you walk into Yorkshire Pub after a long day.
-You find a seat at the bar hoping to blow off some steam.
-"What'll you have?" the bar keep asks.
+You find a seat at the {counter} bar hoping to blow off some steam.
+"What'll you have?" {name}, the bar keep asks.
 "Give me a {favorite_drink}."
 After quietly finising your drink,'''
 
 #If you can't get a drink, the part of the story that's returned.
 no_drink = '''
 You get to your favorite watering hole, the Yorkshire Pub, at {time}.
-After finding a quiet seat you reach into your pocket for some cash to find it empty.
-"What can I get for you?" asks the bar keep.
+After finding a quiet seat at the {counter} bar you reach into your pocket for some cash to find it empty.
+"What can I get for you?" asks {name}, the bar keep.
 "Ah bugger, I'm out of cash."
 "Ain't that just the way of it." he replies.
 Disappointed,'''
-
-#Random Numbers for Time
-from random import randint
-rand_num_1 = randint(5,12)
-rand_num_2 = (randint(0, 5)*10) + randint(0, 9)
-
-#Create the time variable using the random numbers.
-time =  str(rand_num_1) + ":" + str(rand_num_2) + " p.m."
 
 #British Insults Array
 british_insults = ["wazzok", "lummox", "skiver", "minger", "nincompoop", "pillock", "clod hopper", "dunaker", "git", "wanker"]
@@ -95,14 +87,20 @@ def fav_liquor():
 #Define the favorite liquore based on the fav_liquor function.
 favorite_liquor = fav_liquor()
 
+time = raw_input("What time is it? ")
+
 #Ask how much they would pay for the drink option from that liquor
 drink_budget = int(raw_input("What do you think is reasonable for a " + drinks[favorite_liquor]["drink"] + "?"))
 
 #Ask them what their favorite letter is.
 favorite_letter = raw_input("What is your favorite letter?")
 
+british_name = raw_input("What do you think is a cool british name?")
+
+wood  = raw_input("What kind of wood do you like?")
+
 #STORY SETUP FUNCTION  - using 4 params
-def setup_story (liquor, budget, letter, time):
+def setup_story(liquor, budget, letter, time, name, counter):
     #Variables
     favorite_drink = False
     #Find the numeric place of the letter and find the remainder after dividing by 10.
@@ -125,7 +123,7 @@ def setup_story (liquor, budget, letter, time):
         return no_drink.format(**locals()) + main_story.format(**locals())
 
 #Call the setup story function and store it in the story variable.
-story = setup_story(favorite_liquor, drink_budget, favorite_letter, time)
+story = setup_story(favorite_liquor, drink_budget, favorite_letter, time, british_name, wood)
 
 #Print the story variable.
 print story
