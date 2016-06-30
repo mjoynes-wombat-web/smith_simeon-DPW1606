@@ -28,20 +28,27 @@ At least the day's ending well.
 
 #If you can get a drink, the part of the story that is used.
 get_drink = '''
-You walk into Yorkshire Pub after a long day.
-You find a quite seat at the bar hoping to blow off some steam.
+It's {time} and you walk into Yorkshire Pub after a long day.
+You find a seat at the bar hoping to blow off some steam.
 "What'll you have?" the bar keep asks.
 "Give me a {favorite_drink}."
-After quitely finising your drink,'''
+After quietly finising your drink,'''
 
 #If you can't get a drink, the part of the story that's returned.
 no_drink = '''
-You get to your favorite watering hole, the Yorkshire Pub.
-After finding a quite seat you reach into your pocket for some cash to find it empty.
+You get to your favorite watering hole, the Yorkshire Pub, at {time}.
+After finding a quiet seat you reach into your pocket for some cash to find it empty.
 "What can I get for you?" asks the bar keep.
 "Ah bugger, I'm out of cash."
 "Ain't that just the way of it." he replies.
 Disappointed,'''
+
+#Random Numbers for Time
+from random import randint
+rand_num_1 = randint(5,12)
+rand_num_2 = (randint(0, 5)*10) + randint(0, 9)
+
+time =  str(rand_num_1) + ":" + str(rand_num_2) + " p.m."
 
 #British Insults Array
 british_insults = ["wazzok", "lummox", "skiver", "minger", "nincompoop", "pillock", "clod hopper", "dunaker", "git", "wanker"]
@@ -76,44 +83,42 @@ def fav_liquor():
     #Print liquor options and allow raw input, making the input a number.
     liquor = int(raw_input(liquor_options))
 
-
+    #If the number is larger than the number of liquors or less than 1 throw errro and rerun.
     if liquor>len(liquors) or liquor<1:
         print "You didn't select a valid liquor. Please try again.'"
         fav_liquor()
+    #Else return the liquor chosen.
     else:
         return liquors[liquor-1]
 
+#Define the favorite liquore based on the fav_liquor function.
 favorite_liquor = fav_liquor()
 
-drink_budget = raw_input("What do you think is reasonable for a " + drinks[favorite_liquor]["drink"] + "?")
+#Ask how much they would pay for the drink option from that liquor
+drink_budget = int(raw_input("What do you think is reasonable for a " + drinks[favorite_liquor]["drink"] + "?"))
 
+#Ask them what their favorite letter is.
 favorite_letter = raw_input("What is your favorite letter?")
 
 
 
-#Ask the user for their favorite letter.
+def setup_story (liquor, budget, letter, time):
+    favorite_drink = ""
+    letter_num = (ord(letter.lower()) - ord("a"))%10
+    british_insult_1 = british_insults[letter_num]
+    british_insult_2 = british_insults[(len(british_insults)-letter_num-1)]
 
-#A function that accepts the user prompts and returns the story.
-    #Drink Variable
-    #Insult Variable
-    #Number of the letter var = num of letter %10
+    if (drinks[liquor]["price"]<=budget):
+        favorite_drink = drinks[liquor]["drink"]
+    else:
+        favorite_drink = False
 
-    #Based on their favorite liquor find out if they can afford a drink.
-        #If yes then define the drink var as that drink.
-    #Else
-        #If no then define the drink var as false.
-    
-    #Using a loop find the insult using the number from the variable above.
-        #Define the insult var as the insult.
+    if favorite_drink:
+        return get_drink.format(**locals()) + main_story.format(**locals())
+    else:
+        favorite_drink = drinks[liquor]["drink"]
+        return no_drink.format(**locals()) + main_story.format(**locals())
 
-    #if drink var is true
-        #return the story inserting the british insult and the drink line inserting the drink
-    #else
-        #return the story inserting the birtish insult and the line about not being able to affor a drink
+story = setup_story(favorite_liquor, drink_budget, favorite_letter, time)
 
-#story = function with the user prompts as params
-
-#print story
-
-#print get_drink + main_story
-#print no_drink + main_story
+print story
