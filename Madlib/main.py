@@ -48,6 +48,7 @@ from random import randint
 rand_num_1 = randint(5,12)
 rand_num_2 = (randint(0, 5)*10) + randint(0, 9)
 
+#Create the time variable using the random numbers.
 time =  str(rand_num_1) + ":" + str(rand_num_2) + " p.m."
 
 #British Insults Array
