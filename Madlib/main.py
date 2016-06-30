@@ -87,6 +87,7 @@ def fav_liquor():
 #Define the favorite liquore based on the fav_liquor function.
 favorite_liquor = fav_liquor()
 
+#Ask for the time.
 time = raw_input("What time is it? ")
 
 #Ask how much they would pay for the drink option from that liquor
@@ -95,8 +96,10 @@ drink_budget = int(raw_input("What do you think is reasonable for a " + drinks[f
 #Ask them what their favorite letter is.
 favorite_letter = raw_input("What is your favorite letter?")
 
+#Ask for a british name.
 british_name = raw_input("What do you think is a cool british name?")
 
+#Ask for a type of wood.
 wood  = raw_input("What kind of wood do you like?")
 
 #STORY SETUP FUNCTION  - using 4 params
