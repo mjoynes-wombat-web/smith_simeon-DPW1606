@@ -17,6 +17,28 @@
 
 
 #3 Main template strings that makeup the story, one the story, one about getting a drink, one about not being able to afford a drink.
+main_story = ''' you get up to go and a {british_insult_1} runs right into you.
+"You {british_insult_2}," you shout, "Watch where you're going".
+He turns around, fists clenched, but you deck him before he can even swing.
+The bar keep laughs, passing you a {favorite_drink}.
+"That {british_insult_1} has been giving us plenty of trouble. He needed to be taken down a peg."
+At least the day's ending well.
+'''
+
+get_drink = '''
+You walk into Yorkshire Pub after a long day.
+You find a quite seat at the bar hoping to blow off some steam.
+"What'll you have?" the bar keep asks.
+"Give me a {favorite_drink}."
+After quitely finising your drink,'''
+
+no_drink = '''
+You get to your favorite watering hole, the Yorkshire Pub.
+After finding a quite seat you reach into your pocket for some cash to find it empty.
+"What can I get for you?" asks the bar keep.
+"Ah bugger, I'm out of cash."
+"Ain't that just the way of it." he replies.
+Disappointed,'''
 
 #An array of British insults to insert into the template strings.
 
@@ -49,3 +71,6 @@
 #story = function with the user prompts as params
 
 #print story
+
+print get_drink + main_story
+print no_drink + main_story
