@@ -5,7 +5,7 @@
 #One Dictionary
 #2 Math Operators
 #Two Conditional Statements with one logical operator
-#One function with return value and 2 paramenters
+#One function with return value and at least 2 paramenters
 #One Loop
 
 #COMMENT WELL
@@ -100,25 +100,31 @@ drink_budget = int(raw_input("What do you think is reasonable for a " + drinks[f
 #Ask them what their favorite letter is.
 favorite_letter = raw_input("What is your favorite letter?")
 
-
-
+#STORY SETUP FUNCTION  - using 4 params
 def setup_story (liquor, budget, letter, time):
-    favorite_drink = ""
+    #Variables
+    favorite_drink = False
+    #Find the numeric place of the letter and find the remainder after dividing by 10.
     letter_num = (ord(letter.lower()) - ord("a"))%10
+    #Select the british_insults using the letter_num
     british_insult_1 = british_insults[letter_num]
+    #Select the opposite british_insults.
     british_insult_2 = british_insults[(len(british_insults)-letter_num-1)]
 
+    #If the budget is equal or greater than the price then define the favorite_drink with the drink.
     if (drinks[liquor]["price"]<=budget):
         favorite_drink = drinks[liquor]["drink"]
-    else:
-        favorite_drink = False
 
+    #If the favorite drink is true then use the get_drink strink with the main_story string to create the story using the local variables.
     if favorite_drink:
         return get_drink.format(**locals()) + main_story.format(**locals())
+    #Else do the same with the no_drink instead of the get_drink string.
     else:
         favorite_drink = drinks[liquor]["drink"]
         return no_drink.format(**locals()) + main_story.format(**locals())
 
+#Call the setup story function and store it in the story variable.
 story = setup_story(favorite_liquor, drink_budget, favorite_letter, time)
 
+#Print the story variable.
 print story
