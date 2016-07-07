@@ -49,13 +49,13 @@ british_insults = ["wazzok", "lummox", "skiver", "minger", "nincompoop", "pilloc
 #Drinks Dict
 drinks = dict()
 drinks = {
-    "Tequila":{"drink":"margarita", "price": 12},
+    "Tequila":{"drink":"margarita", "price":12},
     "Rum":{"drink":"cuba libre", "price":10},
     "Vodka":{"drink":"martini", "price":14},
     "Gin":{"drink":"singapore sling", "price":15},
     "Scotch":{"drink":"scotch, neat", "price":25},
     "Bourbon":{"drink":"old fashioned", "price":18},
-    "Whiskey":{"drink":"irish car bomb", "price": 16}
+    "Whiskey":{"drink":"irish car bomb", "price":16}
 }
 
 
