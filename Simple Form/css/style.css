@@ -1,0 +1,193 @@
+/*GENERAL*/
+body {
+    background-image: url("../img/footer_lodyas.png");
+    /*Image from subtlepattersn.com */
+    padding: 1.5em;
+    font-family: "Signika", sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+    /*Text*/
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #8b0000;
+    }
+
+    p {
+        margin: .4em 0;
+    }
+    /*Content Wrapper*/
+    div.wrapper {
+        width: 35.7em;
+        margin: 0 auto;
+        padding: 1em 3em 5.5em 3em;
+        background-color: #fdefd9;
+        border-radius: .5em;
+    }
+
+/*HEADER*/
+header h1 {
+    margin-bottom: .45em;
+}
+
+/*MAIN*/
+main h2 {
+    color: #8c2929;
+    font-weight: 400;
+    margin-bottom: .35em;
+}
+
+    /*Form*/
+    main form {
+        position: relative;
+    }
+
+    main form fieldset {
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+        padding: .4em;
+        width: 27em;
+        display: inline-block;
+        clear: right;
+    }
+
+    main form label {
+        display: inline-block;
+        padding: .6em 0;
+        width: 6.2em;
+        text-align: right;
+        vertical-align: top;
+        font-size: 1.2em;
+    }
+
+    main form input,
+    main form select {
+        padding: .4em;
+        font-size: 1em;
+        font-weight: 300;
+    }
+
+    main form select {
+        border-radius: 0;
+        height: 2.2em;
+        background-color: white;
+        border-width: 1px;
+        border-color: #e8e8e8;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-image: url("../img/triangles-forming-arrow-up-and-down.png"); /*Image from http://www.freepik.com/ by flat-icon*/
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: .55em;
+        background-origin: content-box;
+    }
+
+        /*Name*/
+        main form fieldset:first-of-type input:first-of-type {
+            width: 5em;
+        }
+
+        main form fieldset:first-of-type input:last-of-type {
+            width: 8em;
+        }
+
+        /*Title*/
+        main form fieldset:nth-of-type(2) input {
+            width: 12em;
+        }
+
+        /*Email*/
+        main form fieldset:nth-of-type(3) input {
+            width: 14em;
+        }
+
+        /*Phone Number*/
+        main form fieldset:nth-of-type(4) input {
+            text-align: center;
+        }
+
+        main form fieldset:nth-of-type(4) input:first-of-type {
+            width: 2em;
+        }
+
+        main form fieldset:nth-of-type(4) input:nth-of-type(2) {
+            width: 2em;
+        }
+
+        main form fieldset:nth-of-type(4) input:last-of-type {
+            width: 2.5em;
+        }
+
+        /*Phone Format*/
+        main form input[type="radio"] {
+            margin: 0 .4em .3em 0;
+        }
+
+        main form fieldset:nth-of-type(5) {
+            padding-top: .8rem;
+            padding-bottom: .8rem;
+        }
+
+        main form fieldset:nth-of-type(5) label {
+            text-align: left;
+            padding: 0 0 0 1em;
+        }
+
+        main form fieldset:nth-of-type(5) label input {
+            margin-left: -1em;
+        }
+
+        main form fieldset:nth-of-type(5) label span {
+            font-size: .9rem;
+            color: #777;
+            line-height: .9rem;
+            display: block;
+        }
+
+        /*Address*/
+        main form fieldset:nth-of-type(6) input:first-of-type {
+            width: 24.6em;
+            margin-bottom: .5em;
+        }
+
+        main form fieldset:nth-of-type(6) input:nth-of-type(2) {
+            width: 11em;
+        }
+
+        main form fieldset:nth-of-type(6) select {
+            width: 9em;
+        }
+
+        main form fieldset:nth-of-type(6) input:nth-of-type(3) {
+            width: 3.1em;
+            text-align: center;
+        }
+
+        /*Button*/
+        main form > input:last-of-type {
+            display: block;
+            left: 25.6em;
+            position: absolute;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            margin-top: 1em;
+            padding: .8em 1em;
+            border-radius: .3em;
+            background-color: #8b0000;
+            color: #fff;
+            font-weight: 500;
+            border-width: 0 .12em .12em 0;
+            border-color: #a60000;
+        }
+
+        main form > input:last-of-type:hover {
+            border-color: #d90000;
+            background-color: #800000;
+        }
