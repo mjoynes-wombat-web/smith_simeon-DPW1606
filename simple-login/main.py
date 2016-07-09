@@ -22,11 +22,13 @@ class MainHandler(webapp2.RequestHandler):
     {body}
 </html>
         '''
+
         head_temp = '''
     <head>
         <title>{title}</title>
     </head>
         '''
+
         body_temp = '''
     <body>
         {user} {email}
@@ -34,6 +36,7 @@ class MainHandler(webapp2.RequestHandler):
         {links}
     </body>
         '''
+
         form = '''
         <form method="GET">
             <label>Name: </label><input type="text" name="user" />
@@ -41,6 +44,7 @@ class MainHandler(webapp2.RequestHandler):
             <input type="submit" value="Submit" />
         </form>
         '''
+
         links = '''
         <p>
             <a href="?email=bob@bill.com&user=bob">Click here if your email is bob@bill.com</a><br/>
@@ -49,6 +53,7 @@ class MainHandler(webapp2.RequestHandler):
             <a href="?email=henry@bill.com&user=henry">Click here if your email is henry@bill.com</a><br/>
         </p>
         '''
+
         title = "Simple Login Form"
         user = ''
         email = ''
@@ -64,11 +69,6 @@ class MainHandler(webapp2.RequestHandler):
         else:
             page = self.insert_html(main_temp, head_temp, title, body_temp, form, user, email, links)
             self.response.write(page)
-
-
-
-        
-        #self.response.write(page) #Puts info on page.
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
