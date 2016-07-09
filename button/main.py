@@ -28,4 +28,8 @@ class Button(object):
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 674ac64a452ba604dfd9027856c0e78f21293feb
