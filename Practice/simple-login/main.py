@@ -2,10 +2,9 @@
 Simeon Smith
 7-6-2016
 Design Patterns for Web Programming 1606
-Simple Form
+Simple Form - Practice
 '''
 import webapp2
-import logging
 
 class MainHandler(webapp2.RequestHandler):
     def insert_html(self, main, head, title, body, form, user, email, links):
