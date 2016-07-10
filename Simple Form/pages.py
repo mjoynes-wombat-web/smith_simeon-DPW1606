@@ -135,7 +135,7 @@ class Page(object):
             </form>
         '''
         #Create the form page using the create_page function and store it.
-        self.form_page = self.create_page(self.main_header_card, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
+        self.form_page = self.create_page(self.main_header_form, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
 
         #CARD PAGE ELEMENTS
         #Card CSS
