@@ -1,7 +1,8 @@
 #Page Class to hold HTML Elements
 class Page(object):
-    head_html = ''
+    #Initilization Function
     def __init__(self):
+        #Main HTML Tempalte
         self.main_html = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@ class Page(object):
     {body}
 </html>
         '''
+        #Head HTML Template
         self.head_html = '''
 <head>
     <title>Business Card Creator</title>
@@ -18,6 +20,7 @@ class Page(object):
     {page_css}
 </head>
         '''
+        #Body HTML Tempalte
         self.body_html = '''
 <body>
     <div class="wrapper">
@@ -32,7 +35,15 @@ class Page(object):
     </div>
 </body>
         '''
+
+        #FORM PAGE ELEMENTS
+        #Form CSS
+        self.form_css = '''
+        <link rel="stylesheet" type="text/css" href="/css/form.css" >
+        '''
+        #Header for form.
         self.main_header_form = "Please enter your information."
+        #Form HTML Elements
         self.form_html = '''
             <form>
                 <label for="fname">Name: </label>
@@ -42,7 +53,7 @@ class Page(object):
                 </fieldset>
                 <label for="job_title">Title:</label>
                 <fieldset>
-                    <input type="text" name="job_title" placeholder="President" id="job_title">
+                    <input type="text" name="job_title" placeholder="President" id="job_title" value="">
                 </fieldset>
                 <label for="email">E-mail:</label>
                 <fieldset>
@@ -123,11 +134,17 @@ class Page(object):
                 <input type="submit" value="Create Card">
             </form>
         '''
-        self.form_css = '''
-        <link rel="stylesheet" type="text/css" href="/css/form.css" >
-        '''
+        #Create the form page using the create_page function and store it.
+        self.form_page = self.create_page(self.main_header_card, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
 
+        #CARD PAGE ELEMENTS
+        #Card CSS
+        self.card_css = '''
+        <link rel="stylesheet" type="text/css" href="/css/card.css" >
+        '''
+        #Header for card.
         self.main_header_card = "Please see your card below"
+        #Card Template
         self.card_html = '''
             <section>
                 <h3>{name}</h3>
@@ -142,16 +159,16 @@ class Page(object):
                 </section>
             </section>
         '''
-        self.card_css = '''
-        <link rel="stylesheet" type="text/css" href="/css/card.css" >
-        '''
-
-        self.form_page = self.create_page(self.main_header_card, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
-
+        #Create the card page using the create_page function and store it.
         self.card_page = self.create_page(self.main_header_card, self.card_html, self.body_html, self.head_html, self.main_html, self.card_css)
+    
+    #CREATE PAGE FUNCTION
     def create_page(self, main_header, main_content, body, head, page, page_css):
+        #Format the head using local variables.
         head = head.format(**locals())
+        #Format the body using the local variables
         body = body.format(**locals())
+        #Format the page using the local variables
         page = page.format(**locals())
-
+        #Return the page.
         return page
