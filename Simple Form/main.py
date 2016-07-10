@@ -21,10 +21,15 @@ Simple Form
     #No frameworks.
     
 import webapp2
+from pages import Page
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        page = Page()
+
+        form_page = page.form_page
+
+        self.response.write(form_page);
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
