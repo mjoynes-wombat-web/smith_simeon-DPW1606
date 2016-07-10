@@ -127,11 +127,28 @@ class Page(object):
         <link rel="stylesheet" type="text/css" href="/css/form.css" >
         '''
 
-        
+        self.main_header_card = "Please see your card below"
+        self.card_html = '''
+            <section>
+                <h3>{name}</h3>
+                <p>{title}</p>
+                <section>
+                    <p>{phone}</p>
+                    <p>{email}</p>
+                </section>
+                <section>
+                    <p>{street}</p>
+                    <p>{city}</p>
+                </section>
+            </section>
+        '''
+        self.card_css = '''
+        <link rel="stylesheet" type="text/css" href="/css/card.css" >
+        '''
 
-        self.form_page = self.create_page(self.main_header_form, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
+        self.form_page = self.create_page(self.main_header_card, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
 
-        self.card_page = self.create_page(self.main_header_card, self.form_html, self.body_html, self.head_html, self.main_html, self.form_css)
+        self.card_page = self.create_page(self.main_header_card, self.card_html, self.body_html, self.head_html, self.main_html, self.card_css)
     def create_page(self, main_header, main_content, body, head, page, page_css):
         head = head.format(**locals())
         body = body.format(**locals())

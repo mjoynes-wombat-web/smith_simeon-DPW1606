@@ -27,9 +27,13 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         page = Page()
 
-        form_page = page.form_page
+        if self.request.GET:
+            card_page = page.card_page
 
-        self.response.write(form_page);
+            self.response.write(card_page)
+        else:
+            form_page = page.form_page
+            self.response.write(form_page)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

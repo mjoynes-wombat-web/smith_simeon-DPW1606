@@ -5,6 +5,8 @@
     <title>Business Card Creator</title>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/card.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600' rel='stylesheet' type='text/css'>
 </head>
 
@@ -15,7 +17,7 @@
             <p>Simple Form Assignment for DPW</p>
         </header>
         <main>
-            <h2>Please enter your information.</h2>
+            <!--<h2>Please enter your information.</h2>
             <form>
                 <label for="fname">Name: </label>
                 <fieldset>
@@ -103,7 +105,20 @@
                     <input type="text" name="city" placeholder="20110" pattern="[0-9]{5}" oninvalid="this.setCustomValidity('Please enter a 5 digit zip code.')" oninput="setCustomValidity('')">
                 </fieldset>
                 <input type="submit" value="Create Card">
-            </form>
+            </form>-->
+            <h2>Please see your card below</h2>
+            <section>
+                <h3>{name}</h3>
+                <p>{title}</p>
+                <section>
+                    <p>{phone}</p>
+                    <p>{email}</p>
+                </section>
+                <section>
+                    <p>{street}</p>
+                    <p>{city}</p>
+                </section>
+            </section>
         </main>
     </div>
 </body>

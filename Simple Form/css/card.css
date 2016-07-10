@@ -1,0 +1,31 @@
+main > section {
+    width: 31.7em;
+    height: 16.4em;
+    background-image: url("../img/footer_lodyas.png");
+    /*Image from subtlepattersn.com */
+    padding: 2em;
+    color: #fff;
+}
+
+main > section h3 {
+    color: #fff;
+    font-size: 2.3em;
+    margin: .2em 0 .1em 0;
+}
+
+main > section > p {
+    color: #ff8200;
+    font-size: 1.8em;
+}
+
+main > section > section {
+    margin-top: 2.3em;
+    width: 50%;
+    float: left;
+    font-size: 1.8em;
+    color: #ff9c33;
+}
+
+main > section > section:last-of-type {
+    text-align: right;
+}
