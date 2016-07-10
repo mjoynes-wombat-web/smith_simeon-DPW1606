@@ -118,7 +118,7 @@ class Page(object):
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                     </select>
-                    <input type="text" name="city" placeholder="20110" pattern="[0-9]{5}" oninvalid="this.setCustomValidity('Please enter a 5 digit zip code.')" oninput="setCustomValidity('')">
+                    <input type="text" name="zip_code" placeholder="20110" pattern="[0-9]{5}" oninvalid="this.setCustomValidity('Please enter a 5 digit zip code.')" oninput="setCustomValidity('')">
                 </fieldset>
                 <input type="submit" value="Create Card">
             </form>
