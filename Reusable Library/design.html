@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ShopEZ - Grocery Price Comparison Tool</title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/form.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Copse|Roboto:100,300,400" rel="stylesheet">
+    <!--{page_css}-->
+</head>
+<body>
+    <header>
+        <h1>ShopEZ</h1>
+        <p>Grocery Price Comparison Tool</p>
+    </header>
+    <main>
+        <section>
+            <h2>Enter Products Here</h2>
+            <form>
+                <fieldset>
+                    <label for="pName">Name:</label>
+                    <input type="text" name="pName" id="pName" placeholder="Macorni and Cheese" required >
+                </fieldset>
+                <fieldset>
+                    <label for="pBrand">Brand:</label>
+                    <input type="text" name="pBrand" id="pName" placeholder="Kraft">
+                </fieldset>
+                <fieldset>
+                    <label for="pPrice">Price:</label>
+                    <input type="text" name="pPrice" id="pPrice" placeholder="12.50" required pattern="^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number. ie 1.57.')" oninput="setCustomValidity('')">
+                </fieldset>
+                <fieldset>
+                    <label for="pWeight">Weight:</label>
+                    <input type="text" name="pWeight" id="pWeight" placeholder="14" required pattern="[0-9]+" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number.')" oninput="setCustomValidity('')">
+                    <select name="pUnit" required>
+                        <option value="" disabled selected>Unit</option>
+                        <option value="oz">oz.</option>
+                        <option value="lb">lbs.</option>
+                    </select>
+                </fieldset>
+                <input type="text" name="form" value="addProduct" style="display:none">
+                <input type="submit" value="Add to Compare">
+            </form>
+        </section>
+        <section>
+            <h2>Products to Compare</h2>
+            <p>1/5 : Your products will automatically be compared once you reach 5.</p>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                </tr>
+                <tr>
+                    <td>Macoroni and Cheese</td>
+                    <td>Kraft</td>
+                    <td>$12.50</td>
+                    <td>14 oz.</td>
+                </tr>
+            </table>
+            <form>
+                <input type="text" name="form" value="compare" style="display:none">
+                <input type="submit" value="Compare Products">
+            </form>
+        </section>
+    </main>
+</body>
+</html>

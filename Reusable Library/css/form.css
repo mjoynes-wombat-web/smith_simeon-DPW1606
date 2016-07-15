@@ -1,0 +1,117 @@
+/*FORM CSS*/
+/*Form Sections*/
+main > section {
+    float: left;
+    padding:.5em 1.04em 2em 1.04em;
+    margin:1em 0;
+    background-color: rgba(255, 255, 255, .45);
+}
+
+    /*Button*/
+    main > section > form > input:last-of-type {
+        display: block;
+        width:90%;
+        margin:2em auto 0 auto;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        padding: .8em 1em;
+        background-color: #0086c5;
+        color: #fff;
+        font-weight: 500;
+        border-width: 0 .12em .12em 0;
+        border-color: #006391;
+    }
+
+    main > section > form > input:last-of-type:hover {
+        border-color: #00a9f7;
+        background-color: #006391;
+    }
+
+    /*Add Product Form*/
+    main > section:first-of-type {
+        width:30%;
+        margin-right:.5em;
+    }
+
+    main > section:first-of-type h2 {
+        text-align:center;
+    }
+
+    main > section:first-of-type fieldset {
+        border:none;
+        margin:0;
+        padding:.5em 0;
+    }
+
+    main > section:first-of-type fieldset label {
+        width:22%;
+        text-align:right;
+        display:inline-block;
+        padding-right:.4em;
+    }
+
+    main > section:first-of-type fieldset input {
+        font-size:.8em;
+        padding:.4em;
+        border:none;
+        border-bottom:1px solid #ccc4b4;
+        border-right:1px solid #ccc4b4;
+
+    }
+
+    main > section:first-of-type fieldset:not(:last-of-type) input {
+        width: 65%;
+    }
+
+        /*Product Weight*/
+        main > section:first-of-type fieldset:last-of-type input {
+            width: 30%;
+            font-size:.8em;
+            padding:.4em;
+            border:none;
+            border-bottom:1px solid #ccc4b4;
+            border-right:1px solid #ccc4b4;
+        }
+
+        main > section:first-of-type fieldset:last-of-type select {
+            width: 18%;
+            font-size:.8em;
+            padding:.4em;
+            border-radius: 0;
+            height: 2.2em;
+            background-color: white;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-image: url("../img/triangles-forming-arrow-up-and-down.png");
+            /*Image from http://www.freepik.com/ by flat-icon*/
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: .55em;
+            background-origin: content-box;
+            border:none;
+            border-bottom:1px solid #ccc4b4;
+            border-right:1px solid #ccc4b4;
+        }
+
+    /*Compare Product Form*/
+    main > section:last-of-type {
+        width:60%;
+    }
+
+    main > section:last-of-type table {
+        width:100%;
+        text-align: left;
+    }
+
+    main > section:last-of-type table th {
+        border-bottom: 2px solid #0086c5;
+        border-collapse: collapse;
+        font-size:1.4rem;
+        padding:0 0 .3em .2em;
+    }
+
+    main > section:last-of-type table td {
+        padding:.3em 0 .3em .2em;
+    }

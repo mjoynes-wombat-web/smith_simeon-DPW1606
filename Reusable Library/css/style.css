@@ -1,0 +1,26 @@
+/*GLOBAL CSS*/
+body {
+    font-family:'Roboto', sans-serif;
+    background: url(../img/cork-wallet.png);
+    font-size:1.2rem;
+    margin:1em 0 1.5em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Copse', sans-serif;
+}
+
+body > * {
+    width:1000px;
+    margin: 0 auto;
+}
+
+/*HEADER*/
+body > header {
+    width:960px;
+}
+
+/*MAIN CONTENT*/
+body > main {
+    overflow:auto;
+}
