@@ -29,6 +29,18 @@ class Page(object):
     </header>
         '''
 
+    def create_page(self, page_css, main):
+        page_html = self.__html_temp
+        head = self.__head_temp
+        header = self.__header_temp
+        body = self.__body_temp
+
+        head = head.format(**locals())
+        body = body.format(**locals())
+        page_html = page_html.format(**locals())
+
+        return page_html
+
 
 
 class Form(object):

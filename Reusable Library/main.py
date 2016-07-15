@@ -54,7 +54,8 @@ class MainHandler(webapp2.RequestHandler):
         products.append(mac_cheese)
         form = form.create_form(products)
         print form
-        
+        html = p.create_page(form.css, form)
+        self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
