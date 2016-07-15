@@ -52,9 +52,9 @@ class MainHandler(webapp2.RequestHandler):
 
         products = []
         products.append(mac_cheese)
-        form = form.create_form(products)
+        form_html = form.create_form(products)
         print form
-        html = p.create_page(form.css, form)
+        html = p.create_page(form.css, form_html)
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
