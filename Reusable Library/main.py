@@ -42,19 +42,19 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         mac_cheese = Product()
         mac_cheese.name = "Mac and Cheese"
-        mac_cheese.brand = 'Kraft'
+        mac_cheese.brand = "Kraft"
         mac_cheese.price = 12
         mac_cheese.weight = 5;
-        mac_cheese.weight_unit = 'oz'
+        mac_cheese.weight_unit = "oz"
+        
         p = Page()
         form = Form()
 
         products = []
         products.append(mac_cheese)
-        test = form.create_page(products)
-        print test
-        html = p.create_page(form.css, test)
-        self.response.write(html)
+        form = form.create_form(products)
+        print form
+        
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)

@@ -93,3 +93,21 @@ class Form(object):
                     <td>{product.weight}</td>
                 </tr>
         '''
+
+    @property
+    def css(self):
+        return self.__css
+
+    def add_product_row(self, product):
+        return self.__product_row.format(**locals())
+
+    def create_form(self, products):
+        for product in products:
+            self.__product_rows += self.add_product_row(product)
+
+        product_rows = self.__product_rows
+
+        print product_rows
+        page_html = self.__main
+        
+        return page_html.format(**locals())
