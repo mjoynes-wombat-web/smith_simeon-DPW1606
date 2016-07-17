@@ -85,7 +85,6 @@ class Form(object):
                         <option value="lb">lbs.</option>
                     </select>
                 </fieldset>
-                <input type="text" name="form" value="addProduct" style="display:none">
                 <input type="submit" value="Add & Compare">
             </form>
         </section>

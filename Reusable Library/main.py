@@ -46,7 +46,7 @@ class MainHandler(webapp2.RequestHandler):
 
         p1 = Product()
         p1.name = "Shells & White Cheddar"
-        p1.brand = "Annie's'"
+        p1.brand = "Annie's"
         p1.price = 16.17
         p1.weight = 4.5;
         p1.weight_unit = "lb"
@@ -82,7 +82,7 @@ class MainHandler(webapp2.RequestHandler):
         
         
         
-        if self.request.GET['form'] == "addProduct":
+        if self.request.GET:
             new_product = Product()
             new_product.name = self.request.GET['pName']
             new_product.brand = self.request.GET['pBrand']
