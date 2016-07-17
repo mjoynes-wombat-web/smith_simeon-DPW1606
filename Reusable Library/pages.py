@@ -66,19 +66,19 @@ class Form(object):
             <form>
                 <fieldset>
                     <label for="pName">Name:</label>
-                    <input type="text" name="pName" id="pName" placeholder="Macorni and Cheese" required >
+                    <input type="text" name="pName" id="pName" placeholder="Shells and Cheddar" required >
                 </fieldset>
                 <fieldset>
                     <label for="pBrand">Brand:</label>
-                    <input type="text" name="pBrand" id="pName" placeholder="Kraft">
+                    <input type="text" name="pBrand" id="pName" placeholder="Kirkland">
                 </fieldset>
                 <fieldset>
                     <label for="pPrice">Price:</label>
-                    <input type="text" name="pPrice" id="pPrice" placeholder="12.50" required pattern="^[+-]?[0-9]{{1,3}}(?:,?[0-9]{{3}})*(?:\.[0-9]{{2}})?$" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number. ie 1.57.')" oninput="setCustomValidity('')">
+                    <input type="text" name="pPrice" id="pPrice" placeholder="18.00" required pattern="^[+-]?[0-9]{{1,3}}(?:,?[0-9]{{3}})*(?:\.[0-9]{{2}})?$" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number. ie 1.57.')" oninput="setCustomValidity('')">
                 </fieldset>
                 <fieldset>
                     <label for="pWeight">Weight:</label>
-                    <input type="text" name="pWeight" id="pWeight" placeholder="14" required pattern="[0-9]+" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number.')" oninput="setCustomValidity('')">
+                    <input type="text" name="pWeight" id="pWeight" placeholder="12" required pattern="[0-9]+" oninvalid="this.setCustomValidity('This is not a valid number. Please enter only a number.')" oninput="setCustomValidity('')">
                     <select name="pUnit" required>
                         <option value="" disabled selected>Unit</option>
                         <option value="oz">oz.</option>
