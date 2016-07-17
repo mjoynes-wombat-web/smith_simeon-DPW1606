@@ -3,8 +3,11 @@ class Product(object):
         self.__name = ''
         self.__brand = ''
         self.__price = ''
+        self.__price_text = ''
         self.__weight = 0
+        self.__weight_text = ''
         self.__weight_unit = ''
+        self.__product_list = []
 
     @property
     def name(self):
@@ -26,25 +29,41 @@ class Product(object):
     def price(self):
         return self.__price
 
-    @property
-    def price_text(self):
-        return "$" + str(format(self.__price, '.2f'))
-
     @price.setter
     def price(self, p_price):
         self.__price = float(p_price)
 
     @property
+    def price_text(self):
+        self.__price_text = self.concat_price_text()
+        return self.__price_text
+
+    def concat_price_text(self):
+        return "$" + str(format(self.__price, '.2f'))
+
+    @price_text.setter
+    def price_text(self):
+        pass
+
+    @property
     def weight(self):
         return self.__weight
-    
-    @property
-    def weight_text(self):
-        return str(self.__weight) + ' ' + self.__weight_unit
 
     @weight.setter
     def weight(self, p_weight):
         self.__weight = float(p_weight)
+
+    @property
+    def weight_text(self):
+        self.__weight_text = self.concat_weight_text()
+        return self.__weight_text
+
+    def concat_weight_text(self):
+        return str(self.__weight) + ' ' + self.__weight_unit
+
+    @weight_text.setter
+    def weight_text(self):
+        pass
 
     @property
     def weight_unit(self):

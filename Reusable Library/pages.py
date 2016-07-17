@@ -105,6 +105,7 @@ class Form(object):
         return self.__css
 
     def add_product_row(self, product):
+        
         return self.__product_row.format(**locals())
 
     def create_form(self, products):
