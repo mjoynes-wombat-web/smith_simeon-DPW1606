@@ -24,11 +24,13 @@ class Product(object):
 
     @property
     def price(self):
+        #return "$" + str(self.__price)
+        print self.__price
         return "$" + str(format(self.__price, '.2f'))
 
     @price.setter
     def price(self, p_price):
-        self.__price = p_price
+        self.__price = float(p_price)
 
     @property
     def weight(self):
@@ -36,7 +38,7 @@ class Product(object):
 
     @weight.setter
     def weight(self, p_weight):
-        self.__weight = p_weight
+        self.__weight = float(p_weight)
 
     @property
     def weight_unit(self):
