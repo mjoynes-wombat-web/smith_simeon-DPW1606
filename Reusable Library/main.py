@@ -77,25 +77,29 @@ class MainHandler(webapp2.RequestHandler):
         products.append(p4)
         
         pg = Page()
-        form = Form()
+        
 
         
         
         
         if self.request.GET:
+
             new_product = Product()
             new_product.name = self.request.GET['pName']
             new_product.brand = self.request.GET['pBrand']
             new_product.price = self.request.GET['pPrice']
             new_product.weight = self.request.GET['pWeight']
             new_product.weight_unit = self.request.GET['pUnit']
-
             products.append(new_product)
+            
+
+        else:
+            form = Form()
+            form_html = form.create_form(products)
+            html = pg.create_page(form.css, form_html)
 
 
-        form_html = form.create_form(products)
-        print form
-        html = pg.create_page(form.css, form_html)
+        
         self.response.write(html)
 
 app = webapp2.WSGIApplication([
