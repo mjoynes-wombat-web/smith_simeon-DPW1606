@@ -35,25 +35,54 @@ Reusable Library
 #NO ERRORS
 
 import webapp2
+import urllib2
 from pages import Page, Form
 from data import Product
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        mac_cheese = Product()
-        mac_cheese.name = "Mac and Cheese"
-        mac_cheese.brand = "Kraft"
-        mac_cheese.price = 12
-        mac_cheese.weight = 5;
-        mac_cheese.weight_unit = "oz"
-        
-        p = Page()
-        form = Form()
 
         products = []
-        products.append(mac_cheese)
 
-        if self.request.GET:
+        p1 = Product()
+        p1.name = "Shells & White Cheddar"
+        p1.brand = "Annie's'"
+        p1.price = 16.17
+        p1.weight = 4.5;
+        p1.weight_unit = "lb"
+        products.append(p1)
+
+        p2 = Product()
+        p2.name = "Three Cheesy Mini-Shell Pasta"
+        p2.brand = "Kraft"
+        p2.price = 9.73
+        p2.weight = 3.625
+        p2.weight_unit = "lb"
+        products.append(p2)
+
+        p3 = Product()
+        p3.name = "Organic Shells and Cheese"
+        p3.brand = "Back to Nature"
+        p3.price = 3.11
+        p3.weight = 6
+        p3.weight_unit = "oz"
+        products.append(p3)
+
+        p4 = Product()
+        p4.name = "Shells & White Cheddar"
+        p4.brand = "Pasta Roni"
+        p4.price = 1.00
+        p4.weight = 6.2
+        p4.weight_unit = "oz"
+        products.append(p4)
+        
+        pg = Page()
+        form = Form()
+
+        
+        
+        
+        if self.request.GET['form'] == "addProduct":
             new_product = Product()
             new_product.name = self.request.GET['pName']
             new_product.brand = self.request.GET['pBrand']
@@ -66,7 +95,7 @@ class MainHandler(webapp2.RequestHandler):
 
         form_html = form.create_form(products)
         print form
-        html = p.create_page(form.css, form_html)
+        html = pg.create_page(form.css, form_html)
         self.response.write(html)
 
 app = webapp2.WSGIApplication([

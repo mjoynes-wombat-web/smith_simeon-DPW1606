@@ -9,7 +9,7 @@ class Page(object):
         '''
         self.__head_temp = '''
 <head>
-    <title>Business Card Creator</title>
+    <title>ShopEZ - Grocery Price Comparison Tool</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link href="https://fonts.googleapis.com/css?family=Copse|Roboto:100,300,400" rel="stylesheet">
