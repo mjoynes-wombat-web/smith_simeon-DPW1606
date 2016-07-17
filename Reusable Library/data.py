@@ -24,8 +24,10 @@ class Product(object):
 
     @property
     def price(self):
-        #return "$" + str(self.__price)
-        print self.__price
+        return self.__price
+
+    @property
+    def price_text(self):
         return "$" + str(format(self.__price, '.2f'))
 
     @price.setter
@@ -34,6 +36,10 @@ class Product(object):
 
     @property
     def weight(self):
+        return self.__weight
+    
+    @property
+    def weight_text(self):
         return str(self.__weight) + ' ' + self.__weight_unit
 
     @weight.setter
@@ -42,8 +48,26 @@ class Product(object):
 
     @property
     def weight_unit(self):
-        pass
+        return self.__weight_unit
 
     @weight_unit.setter
     def weight_unit(self, p_weight_unit):
         self.__weight_unit = p_weight_unit
+
+class CalcCompare(object):
+    def __init__(self):
+        self.__cost_oz = 0
+
+    @property
+    def cost_oz(self):
+        return self.__cost_oz
+
+    def calc_cost_oz(self, price, weight, weight_unit):
+        if weight_unit == "oz":
+            self.__cost_oz = price / weight
+        elif weight_unit == "lb":
+            self.__cost_oz = price / (weight * 16)
+        else:
+            print "Invalid unit of measurement."
+
+        return round(self.__cost_oz, 2)

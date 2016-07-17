@@ -37,7 +37,7 @@ Reusable Library
 import webapp2
 import urllib2
 from pages import Page, Form
-from data import Product
+from data import Product, CalcCompare
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -78,9 +78,6 @@ class MainHandler(webapp2.RequestHandler):
         
         pg = Page()
         
-
-        
-        
         
         if self.request.GET:
 
@@ -91,7 +88,18 @@ class MainHandler(webapp2.RequestHandler):
             new_product.weight = self.request.GET['pWeight']
             new_product.weight_unit = self.request.GET['pUnit']
             products.append(new_product)
-            
+
+            for p in products:
+                calc = CalcCompare()
+
+                price_ounce = calc.calc_cost_oz(p.price, p.weight, p.weight_unit)
+
+                print price_ounce
+
+            form = Form()
+            form_html = form.create_form(products)
+            html = pg.create_page(form.css, form_html)
+
 
         else:
             form = Form()

@@ -95,8 +95,8 @@ class Form(object):
                 <tr>
                     <td>{product.name}</td>
                     <td>{product.brand}</td>
-                    <td>{product.price}</td>
-                    <td>{product.weight}</td>
+                    <td>{product.price_text}</td>
+                    <td>{product.weight_text}</td>
                 </tr>
         '''
 
@@ -113,7 +113,6 @@ class Form(object):
 
         product_rows = self.__product_rows
 
-        print product_rows
         page_html = self.__main
         
         return page_html.format(**locals())
