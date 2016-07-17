@@ -50,6 +50,18 @@ class Form(object):
         self.__main = '''
     <main>
         <section>
+            <h2>Products to Compare</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                </tr>
+                {product_rows}
+            </table>
+        </section>
+        <section>
             <h2>Enter Products Here</h2>
             <form>
                 <fieldset>
@@ -74,24 +86,7 @@ class Form(object):
                     </select>
                 </fieldset>
                 <input type="text" name="form" value="addProduct" style="display:none">
-                <input type="submit" value="Add to Compare">
-            </form>
-        </section>
-        <section>
-            <h2>Products to Compare</h2>
-            <p>1/5 : Your products will automatically be compared once you reach 5.</p>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Brand</th>
-                    <th>Price</th>
-                    <th>Weight</th>
-                </tr>
-                {product_rows}
-            </table>
-            <form>
-                <input type="text" name="form" value="compare" style="display:none">
-                <input type="submit" value="Compare Products">
+                <input type="submit" value="Add & Compare">
             </form>
         </section>
     </main>

@@ -24,7 +24,7 @@ class Product(object):
 
     @property
     def price(self):
-        return "$" + str(self.__price)
+        return "$" + str(format(self.__price, '.2f'))
 
     @price.setter
     def price(self, p_price):

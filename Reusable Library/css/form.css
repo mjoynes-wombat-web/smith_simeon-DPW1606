@@ -28,30 +28,51 @@ main > section {
         background-color: #006391;
     }
 
-    /*Add Product Form*/
+    /*Compare Product Form*/
     main > section:first-of-type {
-        width:30%;
+        width:60%;
         margin-right:.5em;
     }
 
-    main > section:first-of-type h2 {
+    main > section:first-of-type table {
+        width:100%;
+        text-align: left;
+    }
+
+    main > section:first-of-type table th {
+        border-bottom: 2px solid #0086c5;
+        border-collapse: collapse;
+        font-size:1.4rem;
+        padding:0 0 .3em .2em;
+    }
+
+    main > section:first-of-type table td {
+        padding:.3em 0 .3em .2em;
+    }
+
+    /*Add Product Form*/
+    main > section:last-of-type {
+        width:30%;
+    }
+
+    main > section:last-of-type h2 {
         text-align:center;
     }
 
-    main > section:first-of-type fieldset {
+    main > section:last-of-type fieldset {
         border:none;
         margin:0;
         padding:.5em 0;
     }
 
-    main > section:first-of-type fieldset label {
+    main > section:last-of-type fieldset label {
         width:22%;
         text-align:right;
         display:inline-block;
         padding-right:.4em;
     }
 
-    main > section:first-of-type fieldset input {
+    main > section:last-of-type fieldset input {
         font-size:.8em;
         padding:.4em;
         border:none;
@@ -60,12 +81,12 @@ main > section {
 
     }
 
-    main > section:first-of-type fieldset:not(:last-of-type) input {
+    main > section:last-of-type fieldset:not(:last-of-type) input {
         width: 65%;
     }
 
         /*Product Weight*/
-        main > section:first-of-type fieldset:last-of-type input {
+        main > section:last-of-type fieldset:last-of-type input {
             width: 30%;
             font-size:.8em;
             padding:.4em;
@@ -74,7 +95,7 @@ main > section {
             border-right:1px solid #ccc4b4;
         }
 
-        main > section:first-of-type fieldset:last-of-type select {
+        main > section:last-of-type fieldset:last-of-type select {
             width: 18%;
             font-size:.8em;
             padding:.4em;
@@ -94,24 +115,3 @@ main > section {
             border-bottom:1px solid #ccc4b4;
             border-right:1px solid #ccc4b4;
         }
-
-    /*Compare Product Form*/
-    main > section:last-of-type {
-        width:60%;
-    }
-
-    main > section:last-of-type table {
-        width:100%;
-        text-align: left;
-    }
-
-    main > section:last-of-type table th {
-        border-bottom: 2px solid #0086c5;
-        border-collapse: collapse;
-        font-size:1.4rem;
-        padding:0 0 .3em .2em;
-    }
-
-    main > section:last-of-type table td {
-        padding:.3em 0 .3em .2em;
-    }
