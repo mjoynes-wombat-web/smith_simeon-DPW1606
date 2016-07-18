@@ -1,3 +1,14 @@
+class productData(object):
+    def __init__(self):
+        self.__list = []
+
+    def add_product(self, product):
+        self.__list.append(product)
+
+    @property
+    def list(self):
+        return self.__list
+
 class Product(object):
     def __init__(self):
         self.__name = ''
@@ -7,8 +18,7 @@ class Product(object):
         self.__weight = 0
         self.__weight_text = ''
         self.__weight_unit = ''
-        self.__product_list = []
-
+        
     @property
     def name(self):
         return self.__name

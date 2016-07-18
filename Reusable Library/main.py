@@ -37,12 +37,12 @@ Reusable Library
 import webapp2
 import urllib2
 from pages import Page, Form
-from data import Product, CalcCompare
+from data import productData, Product, CalcCompare
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-        products = []
+        products = productData()
 
         p1 = Product()
         p1.name = "Shells & White Cheddar"
@@ -50,7 +50,7 @@ class MainHandler(webapp2.RequestHandler):
         p1.price = 16.17
         p1.weight = 4.5;
         p1.weight_unit = "lb"
-        products.append(p1)
+        products.add_product(p1)
 
         p2 = Product()
         p2.name = "Three Cheesy Mini-Shell Pasta"
@@ -58,7 +58,7 @@ class MainHandler(webapp2.RequestHandler):
         p2.price = 9.73
         p2.weight = 3.625
         p2.weight_unit = "lb"
-        products.append(p2)
+        products.add_product(p2)
 
         p3 = Product()
         p3.name = "Organic Shells and Cheese"
@@ -66,7 +66,7 @@ class MainHandler(webapp2.RequestHandler):
         p3.price = 3.11
         p3.weight = 6
         p3.weight_unit = "oz"
-        products.append(p3)
+        products.add_product(p3)
 
         p4 = Product()
         p4.name = "Shells & White Cheddar"
@@ -74,7 +74,7 @@ class MainHandler(webapp2.RequestHandler):
         p4.price = 1.00
         p4.weight = 6.2
         p4.weight_unit = "oz"
-        products.append(p4)
+        products.add_product(p4)
         
         pg = Page()
         
@@ -87,23 +87,23 @@ class MainHandler(webapp2.RequestHandler):
             new_product.price = self.request.GET['pPrice']
             new_product.weight = self.request.GET['pWeight']
             new_product.weight_unit = self.request.GET['pUnit']
-            products.append(new_product)
+            products.add_product(new_product)
 
-            for p in products:
+            for p in products.list:
                 calc = CalcCompare()
 
                 price_ounce = calc.calc_cost_oz(p.price, p.weight, p.weight_unit)
 
-                print price_ounce
+                
 
-            form = Form()
-            form_html = form.create_form(products)
-            html = pg.create_page(form.css, form_html)
+            compare = Form()
+            compare_html = compare.create_form(products.list)
+            html = pg.create_page(compare.css, compare_html)
 
 
         else:
             form = Form()
-            form_html = form.create_form(products)
+            form_html = form.create_form(products.list)
             html = pg.create_page(form.css, form_html)
 
 
