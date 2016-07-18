@@ -104,15 +104,13 @@ class MainHandler(webapp2.RequestHandler):
                 new_column.price_row = p
                 new_column.weight_row = p
 
-                print new_column.weight_row
-
-                #print new_column.ounce_price_row
+                compare.add_product_column(new_column)
+                
                 
 
-            
-            #compare_html = compare.create_compare(products.list)
-            #html = pg.create_page(compare.css, compare_html)
-            html = new_column.ounce_price_row
+            compare_html = compare.create_compare(compare)
+            html = pg.create_page(compare.css, compare_html)
+            print html
 
 
         else:

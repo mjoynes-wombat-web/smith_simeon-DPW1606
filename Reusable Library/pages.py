@@ -12,8 +12,8 @@ class Page(object):
     <title>ShopEZ - Grocery Price Comparison Tool</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <link href="https://fonts.googleapis.com/css?family=Copse|Roboto:100,300,400" rel="stylesheet">
     {page_css}
+    <link href="https://fonts.googleapis.com/css?family=Copse|Roboto:100,300,400" rel="stylesheet">
 </head>
         '''
         self.__body_temp = '''
@@ -112,17 +112,14 @@ class Form(object):
             self.__product_rows += self.add_product_row(product)
 
         product_rows = self.__product_rows
-
-        page_html = self.__main
         
-        return page_html.format(**locals())
+        return self.__main.format(**locals())
 
 class compareColumn(object):
     def __init__(self):
         self.__ounce_price_row = '''
                     <td>${price_ounce}</td>
         '''
-        
         self.__name_row = '''
                     <td>{product.name}</td>
         '''
@@ -178,8 +175,9 @@ class compareColumn(object):
         
 class Compare(object):
     def __init__(self):
-        self.__css = '''<link href="css/compare.css" rel="stylesheet"/>'''
+        self.__css = '''<link rel="stylesheet" href="css/compare.css"/>'''
         self.__main = '''
+    <main>
         <section>
             <h2>Price Per Ounce Comparison</h2>
             <table>
@@ -197,20 +195,53 @@ class Compare(object):
                 </tr>
                 <tr>
                     <th>Price</th>
-                    {compare_columns.price_text}
+                    {compare_columns.price}
                 </tr>
                 <tr>
                     <th>Weight</th>
-                    {compare_columns.weight_text}
+                    {compare_columns.weight}
                 </tr>
             </table>
         </section>
+    </main>
         '''
+        self.__price_ounce = ''
+        self.__name = ''
+        self.__brand = ''
+        self.__price = ''
+        self.__weight = ''
         
 
     @property
     def css(self):
-        return self._css
+        return self.__css
 
-    def add_product_column(self, product):
-        return self.__product_column.format(**locals())
+    @property
+    def price_ounce(self):
+        return self.__price_ounce
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def brand(self):
+        return self.__brand
+
+    @property
+    def price(self):
+        return self.__price
+
+    @property
+    def weight(self):
+        return self.__weight
+
+    def add_product_column(self, new_column):
+        self.__price_ounce += new_column.ounce_price_row
+        self.__name += new_column.name_row
+        self.__brand += new_column.brand_row
+        self.__price += new_column.price_row
+        self.__weight += new_column.weight_row
+
+    def create_compare(self, compare_columns):
+        return self.__main.format(**locals())
