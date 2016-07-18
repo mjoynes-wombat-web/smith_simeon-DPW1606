@@ -48,25 +48,3 @@ main > section {
     margin:1em 0;
     background-color: rgba(255, 255, 255, .45);
 }
-
-main > section table th {
-    max-width:1.4em;
-    text-align:center;
-    border-right: 2px solid #0086c5;
-    padding: .3em .6em .3em 0;
-}
-
-main > section table tr:first-of-type th{
-    color:#0086c5;
-}
-
-main > section table td {
-    padding:.3em 0;
-    text-align:center;
-}
-
-main > section table tr:first-of-type td{
-    font-size:1.3em;
-    font-weight:bold;
-    color:#0086c5;
-}
