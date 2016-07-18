@@ -24,3 +24,27 @@ body > header {
 body > main {
     overflow:auto;
 }
+
+/*TABLE*/
+main > section table {
+        width:100%;
+        text-align: left;
+        border-spacing: 0;
+    }
+
+main > section table th {
+    border-collapse: collapse;
+    font-size:1.4rem;
+}
+
+main > section table td {
+    padding:.3em 0 .3em .2em;
+}
+
+/*SECTIONS*/
+
+main > section {
+    padding:.5em 1.04em 2em 1.04em;
+    margin:1em 0;
+    background-color: rgba(255, 255, 255, .45);
+}

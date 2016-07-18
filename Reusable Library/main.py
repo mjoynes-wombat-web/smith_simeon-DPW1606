@@ -36,7 +36,7 @@ Reusable Library
 
 import webapp2
 import urllib2
-from pages import Page, Form
+from pages import Page, Form, Compare, compareColumn
 from data import productData, Product, CalcCompare
 
 class MainHandler(webapp2.RequestHandler):
@@ -89,16 +89,30 @@ class MainHandler(webapp2.RequestHandler):
             new_product.weight_unit = self.request.GET['pUnit']
             products.add_product(new_product)
 
+            compare = Compare()
+
             for p in products.list:
                 calc = CalcCompare()
 
                 price_ounce = calc.calc_cost_oz(p.price, p.weight, p.weight_unit)
 
+                new_column = compareColumn()
+                
+                new_column.ounce_price_row = price_ounce
+                new_column.name_row = p
+                new_column.brand_row = p
+                new_column.price_row = p
+                new_column.weight_row = p
+
+                print new_column.weight_row
+
+                #print new_column.ounce_price_row
                 
 
-            compare = Form()
-            compare_html = compare.create_form(products.list)
-            html = pg.create_page(compare.css, compare_html)
+            
+            #compare_html = compare.create_compare(products.list)
+            #html = pg.create_page(compare.css, compare_html)
+            html = new_column.ounce_price_row
 
 
         else:

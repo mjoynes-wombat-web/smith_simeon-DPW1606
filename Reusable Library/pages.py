@@ -116,4 +116,101 @@ class Form(object):
         page_html = self.__main
         
         return page_html.format(**locals())
+
+class compareColumn(object):
+    def __init__(self):
+        self.__ounce_price_row = '''
+                    <td>${price_ounce}</td>
+        '''
         
+        self.__name_row = '''
+                    <td>{product.name}</td>
+        '''
+        self.__brand_row = '''
+                    <td>{product.brand}</td>
+        '''
+        self.__price_row = '''
+                    <td>{product.price_text}</td>
+        '''
+        self.__weight_row = '''
+                    <td>{product.weight_text}</td>
+        '''
+
+    @property
+    def ounce_price_row(self):
+        return self.__ounce_price_row
+
+    @ounce_price_row.setter
+    def ounce_price_row(self, price_ounce):
+        self.__ounce_price_row = self.__ounce_price_row.format(**locals())
+
+    @property
+    def name_row(self):
+        return self.__name_row
+
+    @name_row.setter
+    def name_row(self, product):
+        self.__name_row = self.__name_row.format(**locals())
+
+    @property
+    def brand_row(self):
+        return self.__brand_row
+
+    @brand_row.setter
+    def brand_row(self, product):
+        self.__brand_row = self.__brand_row.format(**locals())
+
+    @property
+    def price_row(self):
+        return self.__price_row
+
+    @price_row.setter
+    def price_row(self, product):
+        self.__price_row = self.__price_row.format(**locals())
+
+    @property
+    def weight_row(self):
+        return self.__weight_row
+
+    @weight_row.setter
+    def weight_row(self, product):
+        self.__weight_row = self.__weight_row.format(**locals())
+        
+class Compare(object):
+    def __init__(self):
+        self.__css = '''<link href="css/compare.css" rel="stylesheet"/>'''
+        self.__main = '''
+        <section>
+            <h2>Price Per Ounce Comparison</h2>
+            <table>
+                <tr>
+                    <th>Price Per Ounce</th>
+                    {compare_columns.price_ounce}
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    {compare_columns.name}
+                </tr>
+                <tr>
+                    <th>Brand</th>
+                    {compare_columns.brand}
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    {compare_columns.price_text}
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    {compare_columns.weight_text}
+                </tr>
+            </table>
+        </section>
+        '''
+        
+
+    @property
+    def css(self):
+        return self._css
+
+    def add_product_column(self, product):
+        return self.__product_column.format(**locals())

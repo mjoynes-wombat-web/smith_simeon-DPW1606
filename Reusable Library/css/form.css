@@ -2,9 +2,6 @@
 /*Form Sections*/
 main > section {
     float: left;
-    padding:.5em 1.04em 2em 1.04em;
-    margin:1em 0;
-    background-color: rgba(255, 255, 255, .45);
 }
 
     /*Button*/
@@ -28,26 +25,19 @@ main > section {
         background-color: #006391;
     }
 
-    /*Compare Product Form*/
+    /*Compare Product Table*/
     main > section:first-of-type {
         width:60%;
         margin-right:.5em;
     }
 
-    main > section:first-of-type table {
-        width:100%;
-        text-align: left;
-    }
-
     main > section:first-of-type table th {
         border-bottom: 2px solid #0086c5;
-        border-collapse: collapse;
-        font-size:1.4rem;
         padding:0 0 .3em .2em;
     }
 
-    main > section:first-of-type table td {
-        padding:.3em 0 .3em .2em;
+    main > section:first-of-type table td:first-of-type {
+        padding-top:.6em;
     }
 
     /*Add Product Form*/
