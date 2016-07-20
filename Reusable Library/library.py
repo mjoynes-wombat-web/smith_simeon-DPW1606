@@ -99,15 +99,23 @@ class CompareProduct(Product):
     def cost_oz(self):
         return self.__cost_oz
 
-    def calc_cost_oz(self, price, weight, weight_unit):
-        if weight_unit == "oz":
-            self.__cost_oz = price / weight
-        elif weight_unit == "lb":
-            self.__cost_oz = price / (weight * 16)
+    def calc_cost_oz(self):
+        if self.weight_unit == "oz":
+            cost_oz = self.price / self.weight
+        elif self.weight_unit == "lb":
+            cost_oz = self.price / (self.weight * 16)
         else:
             print "Invalid unit of measurement."
 
-        return round(self.__cost_oz, 2)
+        self.__cost_oz = round(cost_oz, 2)
 
     def import_products(self, product):
         pass
+
+    def add_product(self, name, brand, price, weight, weight_unit):
+        self.name = name
+        self.brand = brand
+        self.price = price
+        self.weight = weight
+        self.weight_unit = weight_unit
+        self.calc_cost_oz

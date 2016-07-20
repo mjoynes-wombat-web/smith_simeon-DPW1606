@@ -64,6 +64,7 @@ class MainHandler(webapp2.RequestHandler):
         
         
         if self.request.GET:
+            compare_products = productData()
 
             new_product = CompareProduct()
             new_product.name = self.request.GET['pName']
@@ -71,13 +72,27 @@ class MainHandler(webapp2.RequestHandler):
             new_product.price = self.request.GET['pPrice']
             new_product.weight = self.request.GET['pWeight']
             new_product.weight_unit = self.request.GET['pUnit']
-
-            compare_products = productData()
+            new_product.calc_cost_oz()
+            
             compare_products.add_to_array(new_product)
+
+            for p in products.items:
+                cp = CompareProduct()
+                cp.add_product(p.name, p.brand, p.price, p.weight, p.weight_unit)
+                compare_products.add_to_array(cp)
 
             compare = Compare()
 
-            for p in products.items:
+            for p in compare_products.items:
+                new_column = compareColumn()
+                new_column.ounce_price_row = p.cost_oz
+                new_column.name_row = p
+                new_column.brand_row = p
+                new_column.price_row = p
+                new_column.weight_row = p
+                compare.add_product_column(new_column)
+
+            '''for p in products.items:
                 comp_product = CompareProduct()
 
                 price_ounce = comp_product.calc_cost_oz(p.price, p.weight, p.weight_unit)
@@ -90,7 +105,7 @@ class MainHandler(webapp2.RequestHandler):
                 new_column.price_row = p
                 new_column.weight_row = p
 
-                compare.add_product_column(new_column)
+                compare.add_product_column(new_column)'''
                 
                 
 
