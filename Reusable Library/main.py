@@ -67,12 +67,7 @@ class MainHandler(webapp2.RequestHandler):
             compare_products = productData()
 
             new_product = CompareProduct()
-            new_product.name = self.request.GET['pName']
-            new_product.brand = self.request.GET['pBrand']
-            new_product.price = self.request.GET['pPrice']
-            new_product.weight = self.request.GET['pWeight']
-            new_product.weight_unit = self.request.GET['pUnit']
-            new_product.calc_cost_oz()
+            new_product.add_product(self.request.GET['pName'], self.request.GET['pBrand'], self.request.GET['pPrice'], self.request.GET['pWeight'], self.request.GET['pUnit'])
             
             compare_products.add_to_array(new_product)
 
@@ -85,42 +80,18 @@ class MainHandler(webapp2.RequestHandler):
 
             for p in compare_products.items:
                 new_column = compareColumn()
-                new_column.ounce_price_row = p.cost_oz
-                new_column.name_row = p
-                new_column.brand_row = p
-                new_column.price_row = p
-                new_column.weight_row = p
+                new_column.create_column(p)
                 compare.add_product_column(new_column)
-
-            '''for p in products.items:
-                comp_product = CompareProduct()
-
-                price_ounce = comp_product.calc_cost_oz(p.price, p.weight, p.weight_unit)
-
-                new_column = compareColumn()
-                
-                new_column.ounce_price_row = price_ounce
-                new_column.name_row = p
-                new_column.brand_row = p
-                new_column.price_row = p
-                new_column.weight_row = p
-
-                compare.add_product_column(new_column)'''
-                
-                
 
             compare_html = compare.create_compare(compare)
             html = pg.create_page(compare.css, compare_html)
             print html
-
 
         else:
             form = Form()
             form_html = form.create_form(products.items)
             html = pg.create_page(form.css, form_html)
 
-
-        
         self.response.write(html)
 
 app = webapp2.WSGIApplication([

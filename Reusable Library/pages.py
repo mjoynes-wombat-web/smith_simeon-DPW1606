@@ -114,64 +114,6 @@ class Form(object):
         product_rows = self.__product_rows
         
         return self.__main.format(**locals())
-
-class compareColumn(object):
-    def __init__(self):
-        self.__ounce_price_row = '''
-                    <td>${price_ounce}</td>
-        '''
-        self.__name_row = '''
-                    <td>{product.name}</td>
-        '''
-        self.__brand_row = '''
-                    <td>{product.brand}</td>
-        '''
-        self.__price_row = '''
-                    <td>{product.price_text}</td>
-        '''
-        self.__weight_row = '''
-                    <td>{product.weight_text}</td>
-        '''
-
-    @property
-    def ounce_price_row(self):
-        return self.__ounce_price_row
-
-    @ounce_price_row.setter
-    def ounce_price_row(self, price_ounce):
-        self.__ounce_price_row = self.__ounce_price_row.format(**locals())
-
-    @property
-    def name_row(self):
-        return self.__name_row
-
-    @name_row.setter
-    def name_row(self, product):
-        self.__name_row = self.__name_row.format(**locals())
-
-    @property
-    def brand_row(self):
-        return self.__brand_row
-
-    @brand_row.setter
-    def brand_row(self, product):
-        self.__brand_row = self.__brand_row.format(**locals())
-
-    @property
-    def price_row(self):
-        return self.__price_row
-
-    @price_row.setter
-    def price_row(self, product):
-        self.__price_row = self.__price_row.format(**locals())
-
-    @property
-    def weight_row(self):
-        return self.__weight_row
-
-    @weight_row.setter
-    def weight_row(self, product):
-        self.__weight_row = self.__weight_row.format(**locals())
         
 class Compare(object):
     def __init__(self):
@@ -245,3 +187,68 @@ class Compare(object):
 
     def create_compare(self, compare_columns):
         return self.__main.format(**locals())
+
+class compareColumn(object):
+    def __init__(self):
+        self.__ounce_price_row = '''
+                    <td>{product.cost_oz_text}</td>
+        '''
+        self.__name_row = '''
+                    <td>{product.name}</td>
+        '''
+        self.__brand_row = '''
+                    <td>{product.brand}</td>
+        '''
+        self.__price_row = '''
+                    <td>{product.price_text}</td>
+        '''
+        self.__weight_row = '''
+                    <td>{product.weight_text}</td>
+        '''
+
+    @property
+    def ounce_price_row(self):
+        return self.__ounce_price_row
+
+    @ounce_price_row.setter
+    def ounce_price_row(self, product):
+        self.__ounce_price_row = self.__ounce_price_row.format(**locals())
+
+    @property
+    def name_row(self):
+        return self.__name_row
+
+    @name_row.setter
+    def name_row(self, product):
+        self.__name_row = self.__name_row.format(**locals())
+
+    @property
+    def brand_row(self):
+        return self.__brand_row
+
+    @brand_row.setter
+    def brand_row(self, product):
+        self.__brand_row = self.__brand_row.format(**locals())
+
+    @property
+    def price_row(self):
+        return self.__price_row
+
+    @price_row.setter
+    def price_row(self, product):
+        self.__price_row = self.__price_row.format(**locals())
+
+    @property
+    def weight_row(self):
+        return self.__weight_row
+
+    @weight_row.setter
+    def weight_row(self, product):
+        self.__weight_row = self.__weight_row.format(**locals())
+
+    def create_column(self, product):
+        self.ounce_price_row = product
+        self.name_row = product
+        self.brand_row = product
+        self.price_row = product
+        self.weight_row = product

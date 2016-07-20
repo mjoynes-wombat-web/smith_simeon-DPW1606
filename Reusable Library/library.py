@@ -94,10 +94,19 @@ class CompareProduct(Product):
     def __init__(self):
         Product.__init__(self)
         self.__cost_oz = 0
+        self.__cost_oz_text = ''
 
     @property
     def cost_oz(self):
         return self.__cost_oz
+
+    def concat_cost_oz_text(self):
+        return "$" + str(format(self.__cost_oz, '.2f'))
+
+    @property
+    def cost_oz_text(self):
+        self.__cost_oz_text = self.concat_cost_oz_text()
+        return self.__cost_oz_text
 
     def calc_cost_oz(self):
         if self.weight_unit == "oz":
@@ -118,4 +127,4 @@ class CompareProduct(Product):
         self.price = price
         self.weight = weight
         self.weight_unit = weight_unit
-        self.calc_cost_oz
+        self.calc_cost_oz()
