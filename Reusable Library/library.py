@@ -1,13 +1,13 @@
 class productData(object):
     def __init__(self):
-        self.__list = []
+        self.__items = []
 
-    def add_product(self, product):
-        self.__list.append(product)
+    def add_to_array(self, product):
+        self.__items.append(product)
 
     @property
-    def list(self):
-        return self.__list
+    def items(self):
+        return self.__items
 
 class Product(object):
     def __init__(self):
@@ -83,8 +83,16 @@ class Product(object):
     def weight_unit(self, p_weight_unit):
         self.__weight_unit = p_weight_unit
 
-class CalcCompare(object):
+    def add_product(self, name, brand, price, weight, weight_unit):
+        self.name = name
+        self.brand = brand
+        self.price = price
+        self.weight = weight
+        self.weight_unit = weight_unit
+
+class CompareProduct(Product):
     def __init__(self):
+        Product.__init__(self)
         self.__cost_oz = 0
 
     @property
@@ -100,3 +108,6 @@ class CalcCompare(object):
             print "Invalid unit of measurement."
 
         return round(self.__cost_oz, 2)
+
+    def import_products(self, product):
+        pass
