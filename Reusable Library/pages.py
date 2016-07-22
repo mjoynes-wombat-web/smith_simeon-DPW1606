@@ -1,12 +1,15 @@
+#A class for the main page elements of the application.
 class Page(object):
+    #The initilization function, which holds the variables for use.
     def __init__(self):
+        #Main html template with a placehodler or the head and body.
         self.__html_temp = '''
 <!DOCTYPE html>
 <html lang="en">
 {head}
 {body}
-</html>
-        '''
+</html>'''
+        #Head html template with a placeholder for the page specific CSS.
         self.__head_temp = '''
 <head>
     <title>ShopEZ - Grocery Price Comparison Tool</title>
@@ -14,39 +17,38 @@ class Page(object):
     <link rel="stylesheet" type="text/css" href="css/style.css" >
     {page_css}
     <link href="https://fonts.googleapis.com/css?family=Copse|Roboto:100,300,400" rel="stylesheet">
-</head>
-        '''
+</head>'''
+        #Body html template with a placeholder for the header and main content.
         self.__body_temp = '''
 <body>
     {header}
     {main}
-</body>
-        '''
+</body>'''
+        #Header html template
         self.__header_temp = '''
     <header>
         <h1>ShopEZ</h1>
         <p>Grocery Price Comparison Tool</p>
-    </header>
-        '''
-
+    </header>'''
+    #A fucntion for creating the page with passed in page_css and main html
     def create_page(self, page_css, main):
-        page_html = self.__html_temp
-        head = self.__head_temp
-        header = self.__header_temp
-        body = self.__body_temp
+        page_html = self.__html_temp                #Making the html_temp variable a local variable for use in formatting.
+        head = self.__head_temp                     #Making the head_temp variable a local variable for use in formatting.
+        header = self.__header_temp                 #Making the header_temp variable a local variable for use in formatting.
+        body = self.__body_temp                     #Making the body_temp variable a local variable for use in formatting.
 
-        head = head.format(**locals())
-        body = body.format(**locals())
-        page_html = page_html.format(**locals())
+        head = head.format(**locals())              #Format the head using the local page_css variable
+        body = body.format(**locals())              #Format the body using the local header and main variables
+        page_html = page_html.format(**locals())    #Format the page html using the local head and body varaibles
 
-        return page_html
-
-
-
-class Form(object):
+        return page_html                            #Return the page html.
+#A class for the form page elements of the application.
+class FormHTML(object):
+    #The initilization funciton, which holds the variables for use.
     def __init__(self):
+        #Form css tag.
         self.__css = '''<link href="css/form.css" rel="stylesheet"/>'''
-
+        #Form main html content with the product_rows placeholder.
         self.__main = '''
     <main>
         <section>
@@ -90,7 +92,9 @@ class Form(object):
         </section>
     </main>
         '''
+        #A variable to hold the string of product rows.
         self.__product_rows = ''
+        #The product rows template with placeholders.
         self.__product_row = '''
                 <tr>
                     <td>{product.name}</td>
@@ -99,14 +103,14 @@ class Form(object):
                     <td>{product.weight_text}</td>
                 </tr>
         '''
-
+    #Getter for the css.
     @property
     def css(self):
         return self.__css
-
+    #A function that creates a prodcut row from the variable above.
     def add_product_row(self, product):
         return self.__product_row.format(**locals())
-
+    #A function for creating the form content, looking through the products passed in to create the product rows and fomatting the placeholders.
     def create_form(self, products):
         for product in products:
             self.__product_rows += self.add_product_row(product)
@@ -114,10 +118,13 @@ class Form(object):
         product_rows = self.__product_rows
         
         return self.__main.format(**locals())
-        
-class Compare(object):
+#A class for the compare page elements of the application.
+class CompareHTML(object):
+    #The initilization function which holds the variables for use.
     def __init__(self):
+        #Compare page css tag.
         self.__css = '''<link rel="stylesheet" href="css/compare.css"/>'''
+        #Compare page main content.
         self.__main = '''
     <main>
         <section>
@@ -147,49 +154,51 @@ class Compare(object):
         </section>
     </main>
         '''
+        #Variables to hold the various product column's html.
         self.__price_ounce = ''
         self.__name = ''
         self.__brand = ''
         self.__price = ''
         self.__weight = ''
-        
-
+    #CSS Getter
     @property
     def css(self):
         return self.__css
-
+    #Price per ounce Getter
     @property
     def price_ounce(self):
         return self.__price_ounce
-
+    #Name Getter
     @property
     def name(self):
         return self.__name
-
+    #Brand Getter
     @property
     def brand(self):
         return self.__brand
-
+    #Price Getter
     @property
     def price(self):
         return self.__price
-
+    #Weight Getter
     @property
     def weight(self):
         return self.__weight
-
+    #A function which takes the new column variables and adds them to the appropriate column string.
     def add_product_column(self, new_column):
         self.__price_ounce += new_column.ounce_price_row
         self.__name += new_column.name_row
         self.__brand += new_column.brand_row
         self.__price += new_column.price_row
         self.__weight += new_column.weight_row
-
+    #A function which returns the formatted html for the compare page.
     def create_compare(self, compare_columns):
         return self.__main.format(**locals())
-
+#A class for the individual compare columns
 class compareColumn(object):
+    #The initilization function which holds the variables for use.
     def __init__(self):
+        #Variables for the row templates.
         self.__ounce_price_row = '''
                     <td>{product.cost_oz_text}</td>
         '''
@@ -205,47 +214,47 @@ class compareColumn(object):
         self.__weight_row = '''
                     <td>{product.weight_text}</td>
         '''
-
+    #Price Per Ounce Row Getter
     @property
     def ounce_price_row(self):
         return self.__ounce_price_row
-
+    #Price Per Ounce Row Setter which creates the td based on the passed in variables.
     @ounce_price_row.setter
     def ounce_price_row(self, product):
         self.__ounce_price_row = self.__ounce_price_row.format(**locals())
-
+    #Name Row Getter
     @property
     def name_row(self):
         return self.__name_row
-
+    #Name Row Setter which creates the td based on the passed in variables.
     @name_row.setter
     def name_row(self, product):
         self.__name_row = self.__name_row.format(**locals())
-
+    #Brand Row Getter
     @property
     def brand_row(self):
         return self.__brand_row
-
+    #Brand Row Setter which creates the td based on the passed in variables.
     @brand_row.setter
     def brand_row(self, product):
         self.__brand_row = self.__brand_row.format(**locals())
-
+    #Price Row Getter
     @property
     def price_row(self):
         return self.__price_row
-
+    #Price Row Setter which creates the td based on the passed in variables.
     @price_row.setter
     def price_row(self, product):
         self.__price_row = self.__price_row.format(**locals())
-
+    #Weight Row Getter
     @property
     def weight_row(self):
         return self.__weight_row
-
+    #Weight Row Setter which creates the td based on the passed in variables.
     @weight_row.setter
     def weight_row(self, product):
         self.__weight_row = self.__weight_row.format(**locals())
-
+    #A function that creates each row of the columns based on the passed in product variable.
     def create_column(self, product):
         self.ounce_price_row = product
         self.name_row = product
