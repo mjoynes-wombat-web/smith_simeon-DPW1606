@@ -15,9 +15,6 @@ handlers:
 - url: /css
   static_dir: compare.css
 
-- url: .*
-  static_file: test.json
-
 - url: /img
   static_dir: img
 
