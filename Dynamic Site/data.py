@@ -16,7 +16,7 @@ class Contact(object):
         if isinstance(first_name, basestring):
             self.__first_name = first_name
         else:
-            print first_name " for first name defined is not a valid string."
+            print first_name + " for first name defined is not a valid string."
 
     @property
     def last_name(self):
@@ -26,7 +26,7 @@ class Contact(object):
         if isinstance(last_name, basestring):
             self.__last_name = last_name
         else:
-            print last_name " for last name defined is not a valid string."
+            print last_name + " for last name defined is not a valid string."
 
     @property
     def phone_number(self):
@@ -37,9 +37,9 @@ class Contact(object):
             if len(str(phone_number)) == 11:
                 self.__phone_number = phone_number
             else:
-                print phone_number " for phone number isn't the correct length. Please enter 11 digits.'"
+                print str(phone_number) + " for phone number isn't the correct length. Please enter 11 digits.'"
         else:
-            print phone_number " for phone number can only be set to a number. Please enter only numbers"
+            print str(phone_number) + " for phone number can only be set to a number. Please enter only numbers"
 
     @property
     def company(self):
@@ -81,4 +81,14 @@ class Contact(object):
         else:
             print last_contact + " for last contact is not a valid string"
 
-    
+    def add_contact(self, first_name, last_name, phone_number, company, title, first_contact, last_contact):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.phone_number = phone_number
+        self.company = company
+        self.title = title
+        self.first_contact = first_contact
+        self.last_contact = last_contact
+
+c1 = Contact()
+c1.add_contact("Simeon", "Smith", 5092806173, "Wombat Web Design", "Owner/Designer", "11/15/88", "07/25/16")

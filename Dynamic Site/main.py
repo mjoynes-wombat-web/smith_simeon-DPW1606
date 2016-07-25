@@ -40,10 +40,13 @@ Dynamic Site
 #Unique and Original
 
 import webapp2
+from data import c1
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
+
+        print c1.first_name
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
