@@ -1,3 +1,5 @@
+import re
+
 class Contact(object):
     def __init__(self):
         self.__first_name = ''
@@ -16,7 +18,7 @@ class Contact(object):
         if isinstance(first_name, basestring):
             self.__first_name = first_name
         else:
-            print first_name + " for first name defined is not a valid string."
+            raise ValueError("You entered " + str(first_name) + " for the first name but it is not a valid string.")
 
     @property
     def last_name(self):
@@ -26,7 +28,7 @@ class Contact(object):
         if isinstance(last_name, basestring):
             self.__last_name = last_name
         else:
-            print last_name + " for last name defined is not a valid string."
+            raise ValueError("You entered " + str(last_name) + " for the last name but it is not a valid string.")
 
     @property
     def phone_number(self):
@@ -37,9 +39,9 @@ class Contact(object):
             if len(str(phone_number)) == 11:
                 self.__phone_number = phone_number
             else:
-                print str(phone_number) + " for phone number isn't the correct length. Please enter 11 digits.'"
+                raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s phone number is not the correct length. You entereted " + str(phone_number) + ". Please enter 11 digits.")
         else:
-            print str(phone_number) + " for phone number can only be set to a number. Please enter only numbers"
+            raise TypeError("Your contact " + self.__first_name + " " + self.__last_name + "'s phone number is not a number. You entered " + str(phone_number) + ". Please enter only numbers.")
 
     @property
     def company(self):
@@ -49,7 +51,7 @@ class Contact(object):
         if isinstance(company, basestring):
             self.__company = company
         else:
-            print company + " for company is not a valid string."
+            raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s company is not a string. You entered " + str(company) + " for the company. Please enter only a string.")
 
     @property
     def title(self):
@@ -59,27 +61,35 @@ class Contact(object):
         if isinstance(title, basestring):
             self.__title = title
         else:
-            print title + " for title is not a valid string."
+            raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s title is not a string. You entered " + str(title) + " for the title. Please enter only a string.")
     
     @property
     def first_contact(self):
         return self.__first_contact
     @first_contact.setter
     def first_contact(self, first_contact):
+        pattern = re.compile("[0-9][0-9].[0-9][0-9].[0-9][0-9]")
         if isinstance(first_contact, basestring):
-            self.__first_contact = first_contact
+            if pattern.match(first_contact):
+                self.__first_contact = first_contact
+            else:
+                raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s first contact date does not match the approved format. You entered " + str(first_contact) + " for the first contact date. Please enter a date in this format MM/DD/YY")
         else:
-            print first_contact + " for first contact is not a valid string"
+            raise TypeError("Your contact " + self.__first_name + " " + self.__last_name + "'s first contact date is not a string. You entered " + str(first_contact) + " for first contact date. Please enter only a string.")
 
     @property
     def last_contact(self):
         return self.__last_contact
     @last_contact.setter
     def last_contact(self, last_contact):
+        pattern = re.compile("[0-9][0-9].[0-9][0-9].[0-9][0-9]")
         if isinstance(last_contact, basestring):
-            self.__last_contact = last_contact
+            if pattern.match(last_contact):
+                self.__last_contact = last_contact
+            else:
+                raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s last contact date does not match the approved format. You entered " + str(last_contact) + " for the last contact date. Please enter a date in this format MM/DD/YY")
         else:
-            print last_contact + " for last contact is not a valid string"
+            raise TypeError("Your contact " + self.__first_name + " " + self.__last_name + "'s last contact date is not a string. You entered " + st(last_contact) + " for last contact date. Please enter only a string.")
 
     def add_contact(self, first_name, last_name, phone_number, company, title, first_contact, last_contact):
         self.first_name = first_name
@@ -89,6 +99,3 @@ class Contact(object):
         self.title = title
         self.first_contact = first_contact
         self.last_contact = last_contact
-
-c1 = Contact()
-c1.add_contact("Simeon", "Smith", 5092806173, "Wombat Web Design", "Owner/Designer", "11/15/88", "07/25/16")
