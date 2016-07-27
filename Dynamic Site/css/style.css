@@ -1,0 +1,62 @@
+body{
+    margin:2em;
+    padding:0;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size:1.2em;
+    overflow:hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Arima Madurai", serif;
+    font-size:2.4rem;
+    line-height:2.4rem;
+}
+
+body > * {
+    margin:0 auto;
+    width:40%;
+}
+
+body > header {
+    background-color:#799c70;
+    color:#fff;
+    border-bottom: 2px solid #374F31;
+    z-index: 100;
+    position:relative;
+    overflow:auto;
+}
+
+body > header > h1 {
+    padding: .3em .7em 0 .7em;
+}
+
+body > main > nav {
+    padding:0;
+    height:70vh;
+    overflow:scroll;
+    background-color:#E7F2E4;
+}
+
+body > main > nav > ul {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
+
+body > main > nav > ul > li > a {
+    display:block;
+    margin:0 .8em;
+    padding:1.2em .7em;
+    text-decoration: none;
+    color:#4F2948;
+    font-weight:400;
+    border-bottom:.1em solid rgba(199, 193, 198, 0.6)
+}
+
+body > main > nav > ul > li > a:visited {
+    color:#4F2948;
+}
+
+body > main > nav > ul > li:hover {
+    background-color:#E6E3E4;
+}
