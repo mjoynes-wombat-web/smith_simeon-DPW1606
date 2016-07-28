@@ -23,8 +23,13 @@ class Page(object):
         <header>
             <h1>{self.h1}</h1>
         </header>'''
+        self.__main_temp = '''
+        <main>
+            {self.main_content}
+        </main>'''
         self.__header = ''
         self.__main = ''
+        self.__main_content = ''
         self.__title = ''
         self.__css = ''
         self.__head = ''
@@ -48,6 +53,11 @@ class Page(object):
         return self.__body
 
     @property
+    def main(self):
+        self.__main = self.__main_temp.format(**locals())
+        return self.__main
+
+    @property
     def header(self):
         self.__header = self.__header_temp.format(**locals())
         return self.__header
@@ -69,12 +79,12 @@ class Page(object):
         self.__css = css
 
     @property
-    def main(self):
-        return self.__main
+    def main_content(self):
+        return self.__main_content
 
-    @main.setter
-    def main(self, main):
-        self.__main = main
+    @main_content.setter
+    def main_content(self, main_content):
+        self.__main_content = main_content
 
     @property
     def h1(self):
@@ -84,6 +94,31 @@ class Page(object):
     def h1(self, h1):
         self.__h1 = h1
 
-class contactPage(Page):
+class mainPage(Page):
     def __init__(self):
         Page.__init__(self)
+        self.__contact_list_temp = '''
+            <nav>
+                <ul>
+                    {self.contacts}
+                </ul>
+            </nav>'''
+        self.__contact_list = ''
+        self.__contacts = ''
+        self.__contact_temp = '''
+                    <li><a href="?contact_name={first_name}+{last_name}">{first_name} {last_name}</a></li>'''
+
+    @property
+    def contacts(self):
+        return self.__contacts
+
+    @property
+    def contact_list(self):
+        self.__contact_list = self.__contact_list_temp.format(**locals())
+        return self.__contact_list
+
+    def create_contact(self, first_name, last_name):
+        self.__contacts += self.__contact_temp.format(**locals())
+
+
+
