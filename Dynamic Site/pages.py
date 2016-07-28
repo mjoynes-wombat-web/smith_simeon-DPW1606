@@ -124,3 +124,45 @@ class mainPage(Page):
 class contactPage(Page):
     def __init__(self):
         Page.__init__(self)
+        self.__contact_temp = '''
+            <section>
+                {self.contact_info}
+                {self.needs_contact_button}
+            </section>'''
+        self.__contact_info_temp = '''
+                <h3>{self.contact.first_name} {self.contact.last_name}</h3>
+                <p class="phone_number">{self.contact.phone}</p>
+                <p class="email">{self.contact.email}</p>
+                <p class="company">{self.contact.company}</p>
+                <p class="title">{self.contact.title}</p>
+                <p class="know_for">{self.ontact.know_for}</p>'''
+        self.__contact_info = ''
+        self.__needs_contact_button_temp = '''
+                <p class="needs_contact"><a href="#">It's been a while, send {self.contact.first_name} {self.contact.last_name} a message.</a></p>'''
+        self.__needs_contact_button = ''
+        self.__contact = dict()
+        self.__contact_html = ''
+
+    @property
+    def contact(self):
+        return self.__contact
+
+    @contact.setter
+    def contact(self, contact):
+        self.__contact = contact
+
+    @property
+    def needs_contact_button(self):
+        if self.contact.needs_contact:
+            self.__needs_contact_button = self.__needs_contact_button_temp.format(**locals())
+        return self.__needs_contact_button
+
+    @property
+    def contact_info(self):
+        self.__contact_info = self.__contact_info_temp.format(**locals())
+        return self.__contact_info
+
+    @property
+    def contact_html(self):
+        self.__contact_html = self.__contact_temp.format(**locals())
+        return self.__contact_html

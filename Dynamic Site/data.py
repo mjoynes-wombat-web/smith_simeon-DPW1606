@@ -13,7 +13,15 @@ class Contact(object):
         self.__last_contact = ''
         self.__months_past_contact = 0
         self.__needs_contact = False
+        self.__know_for = ''
 
+    @property
+    def know_for(self):
+        first_contact = self.first_contact.split('/')
+        current_year = datetime.datetime.today().year
+        self.__know_for = current_year - first_contact[2]
+        return self.__know_for
+        
     @property
     def first_name(self):
         return self.__first_name
