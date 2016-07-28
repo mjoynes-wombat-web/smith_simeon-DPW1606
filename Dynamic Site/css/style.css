@@ -68,14 +68,54 @@ body > main > section {
     background-color:#E6E3E4;
     padding: 1.7em 1.5em;
     height: 60vh;
+    position:relative;
 }
 
 body > main > section > h3 {
-    font-size:1.4em;
+    font-size:1.6em;
     margin:0;
+    padding-bottom:.4rem;
     border-bottom:.1em solid rgba(199, 193, 198, 0.6)
 }
 
-body > main > section > p.phone_number {
-    font-size:
+body > main > section > p.phone_number, body > main > section > p.email {
+    font-size:1.3em;
+    margin:.4rem 0 ;
+}
+
+body > main > section > p:first-of-type {
+    margin-top:.8em;
+}
+
+body > main > section > p.company {
+    margin:1rem 0 .4rem 0;
+}
+
+body > main > section > p.title {
+    margin:.4rem 0 1.6rem 0;
+}
+
+body > main > section > p.know_for {
+    border-top:.05em solid rgba(199, 193, 198, 0.6);
+    margin:0;
+    padding:1.6rem 0;
+}
+
+body > main > section > p.needs_contact{
+    position:relative;
+    bottom:0;
+    margin:0;
+}
+
+body > main > section > p.needs_contact > a {
+    color:#fff;
+    padding:1.5em 0;
+    display:block;
+    text-decoration: none;
+    text-align:center;
+    background-color:#996B7C;
+}
+
+body > main > section > p.needs_contact > a:hover{
+    background-color:#B37D91;
 }
