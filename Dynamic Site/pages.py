@@ -21,7 +21,7 @@ class Page(object):
         '''
         self.__header_temp = '''
         <header>
-            <h1>{self.h1}</h1>
+            <h1><a href="/">{self.h1}</a></h1>
         </header>'''
         self.__main_temp = '''
         <main>

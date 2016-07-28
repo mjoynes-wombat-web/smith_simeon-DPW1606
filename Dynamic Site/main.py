@@ -73,7 +73,7 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.GET:
             if self.request.GET['contact_name'] == contacts.list[0].first_name + ' ' + contacts.list[0].last_name:
                 page = contactPage()
-                page.title = "Contacts " + contacts.list[0].first_name + ' ' + contacts.list[0].last_name
+                page.title = contacts.list[0].first_name + ' ' + contacts.list[0].last_name + " - Contacts"
                 page.css = "style.css"
                 page.h1 = "Contacts"
                 page.contact = contacts.list[0]
@@ -81,10 +81,34 @@ class MainHandler(webapp2.RequestHandler):
 
             if self.request.GET['contact_name'] == contacts.list[1].first_name + ' ' + contacts.list[1].last_name:
                 page = contactPage()
-                page.title = "Contacts " + contacts.list[1].first_name + ' ' + contacts.list[1].last_name
+                page.title = contacts.list[1].first_name + ' ' + contacts.list[1].last_name + " - Contacts"
                 page.css = "style.css"
                 page.h1 = "Contacts"
                 page.contact = contacts.list[1]
+                page.main_content = page.contact_html
+
+            if self.request.GET['contact_name'] == contacts.list[2].first_name + ' ' + contacts.list[2].last_name:
+                page = contactPage()
+                page.title = contacts.list[2].first_name + ' ' + contacts.list[2].last_name + " - Contacts"
+                page.css = "style.css"
+                page.h1 = "Contacts"
+                page.contact = contacts.list[2]
+                page.main_content = page.contact_html
+
+            if self.request.GET['contact_name'] == contacts.list[3].first_name + ' ' + contacts.list[3].last_name:
+                page = contactPage()
+                page.title = contacts.list[3].first_name + ' ' + contacts.list[3].last_name + " - Contacts"
+                page.css = "style.css"
+                page.h1 = "Contacts"
+                page.contact = contacts.list[3]
+                page.main_content = page.contact_html
+
+            if self.request.GET['contact_name'] == contacts.list[4].first_name + ' ' + contacts.list[4].last_name:
+                page = contactPage()
+                page.title = contacts.list[4].first_name + ' ' + contacts.list[4].last_name + " - Contacts"
+                page.css = "style.css"
+                page.h1 = "Contacts"
+                page.contact = contacts.list[4]
                 page.main_content = page.contact_html
         else:
             page = mainPage()
