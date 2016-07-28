@@ -30,10 +30,13 @@ body > header > h1 {
     padding: .3em .7em 0 .7em;
 }
 
-body > main > nav {
+body > main > * {
     padding:0;
     height:70vh;
     overflow:scroll;
+}
+
+body > main > nav {
     background-color:#E7F2E4;
 }
 
@@ -59,4 +62,20 @@ body > main > nav > ul > li > a:visited {
 
 body > main > nav > ul > li:hover {
     background-color:#E6E3E4;
+}
+
+body > main > section {
+    background-color:#E6E3E4;
+    padding: 1.7em 1.5em;
+    height: 60vh;
+}
+
+body > main > section > h3 {
+    font-size:1.4em;
+    margin:0;
+    border-bottom:.1em solid rgba(199, 193, 198, 0.6)
+}
+
+body > main > section > p.phone_number {
+    font-size:
 }
