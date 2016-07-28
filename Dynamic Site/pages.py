@@ -121,4 +121,6 @@ class mainPage(Page):
         self.__contacts += self.__contact_temp.format(**locals())
 
 
-
+class contactPage(Page):
+    def __init__(self):
+        Page.__init__(self)
