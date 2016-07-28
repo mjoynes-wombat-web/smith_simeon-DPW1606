@@ -119,6 +119,9 @@ class MainHandler(webapp2.RequestHandler):
                 page.create_contact(c.first_name, c.last_name)
                 print page.contact_list
             page.main_content = page.contact_list
+            
+        test = str(contacts.list[0].phone_number)
+        print test[0]
 
         self.response.write(page.html)
 

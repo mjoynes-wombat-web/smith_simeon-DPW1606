@@ -44,7 +44,8 @@ class Contact(object):
 
     @property
     def phone_number(self):
-        return self.__phone_number
+        phone_number = str(self.__phone_number)
+        return phone_number[0] + '.' + phone_number[1:4] + '.' + phone_number[4:7] + '.' + phone_number[7:]
     @phone_number.setter
     def phone_number(self, phone_number):
         if isinstance(phone_number, int):
