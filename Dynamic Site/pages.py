@@ -135,7 +135,7 @@ class contactPage(Page):
                 <p class="email">{self.contact.email}</p>
                 <p class="company">{self.contact.company}</p>
                 <p class="title">{self.contact.title}</p>
-                <p class="know_for">Know for {self.contact.know_for} years.</p>'''
+                <p class="known_for">Known for {self.contact.known_for} years.</p>'''
         self.__contact_info = ''
         self.__needs_contact_button_temp = '''
                 <p class="needs_contact"><a href="#">It's been a while, send {self.contact.first_name} {self.contact.last_name} a message.</a></p>'''

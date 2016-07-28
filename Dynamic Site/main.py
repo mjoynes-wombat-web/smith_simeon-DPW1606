@@ -31,13 +31,13 @@ Dynamic Site
     #!lib.py
         #!Optional for extra credit.
 
-#Professionaly Designed
+#!Professionaly Designed
 #Comment code in detail
 #Commit 20 times.
-#No frameworks.
-#No global variables
-#NO ERRORS
-#Unique and Original
+#!No frameworks.
+#!No global variables
+#!NO ERRORS
+#!Unique and Original
 
 import webapp2
 from data import Contact
@@ -89,9 +89,6 @@ class MainHandler(webapp2.RequestHandler):
                 page.create_contact(c.first_name, c.last_name)
                 print page.contact_list
             page.main_content = page.contact_list
-            
-        test = str(contacts.list[0].phone_number)
-        print test[0]
 
         self.response.write(page.html)
 
