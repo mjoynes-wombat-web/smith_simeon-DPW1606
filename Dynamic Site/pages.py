@@ -131,11 +131,11 @@ class contactPage(Page):
             </section>'''
         self.__contact_info_temp = '''
                 <h3>{self.contact.first_name} {self.contact.last_name}</h3>
-                <p class="phone_number">{self.contact.phone}</p>
+                <p class="phone_number">{self.contact.phone_number}</p>
                 <p class="email">{self.contact.email}</p>
                 <p class="company">{self.contact.company}</p>
                 <p class="title">{self.contact.title}</p>
-                <p class="know_for">{self.ontact.know_for}</p>'''
+                <p class="know_for">Know for {self.contact.know_for} years.</p>'''
         self.__contact_info = ''
         self.__needs_contact_button_temp = '''
                 <p class="needs_contact"><a href="#">It's been a while, send {self.contact.first_name} {self.contact.last_name} a message.</a></p>'''

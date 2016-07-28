@@ -42,7 +42,7 @@ Dynamic Site
 import webapp2
 from data import Contact
 from lib import contactLib
-from pages import Page, mainPage
+from pages import Page, mainPage, contactPage
 import datetime
 
 class MainHandler(webapp2.RequestHandler):
@@ -71,7 +71,21 @@ class MainHandler(webapp2.RequestHandler):
         contacts.add_contact(c5)
 
         if self.request.GET:
-            pass
+            if self.request.GET['contact_name'] == contacts.list[0].first_name + ' ' + contacts.list[0].last_name:
+                page = contactPage()
+                page.title = "Contacts " + contacts.list[0].first_name + ' ' + contacts.list[0].last_name
+                page.css = "style.css"
+                page.h1 = "Contacts"
+                page.contact = contacts.list[0]
+                page.main_content = page.contact_html
+
+            if self.request.GET['contact_name'] == contacts.list[1].first_name + ' ' + contacts.list[1].last_name:
+                page = contactPage()
+                page.title = "Contacts " + contacts.list[1].first_name + ' ' + contacts.list[1].last_name
+                page.css = "style.css"
+                page.h1 = "Contacts"
+                page.contact = contacts.list[1]
+                page.main_content = page.contact_html
         else:
             page = mainPage()
             page.title = "Contacts"

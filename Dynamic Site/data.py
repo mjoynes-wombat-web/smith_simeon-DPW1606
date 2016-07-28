@@ -19,9 +19,9 @@ class Contact(object):
     def know_for(self):
         first_contact = self.first_contact.split('/')
         current_year = datetime.datetime.today().year
-        self.__know_for = current_year - first_contact[2]
+        self.__know_for = current_year - int(first_contact[2])
         return self.__know_for
-        
+
     @property
     def first_name(self):
         return self.__first_name
