@@ -50,23 +50,23 @@ class MainHandler(webapp2.RequestHandler):
         contacts = contactLib()
 
         c1 = Contact()
-        c1.add_contact("Simeon", "Smith", 15092806173, "Wombat Web Design", "Owner/Designer", "11/15/1988", "07/25/2016")
+        c1.add_contact("Simeon", "Smith", 15092806173, "smsmith1@fullsail.edu", "Wombat Web Design", "Owner/Designer", "11/15/1988", "07/25/2016")
         contacts.add_contact(c1)
 
         c2 = Contact()
-        c2.add_contact("James", "Thompson", 13472817543, "Design Bright", "Web Developer", "02/11/2010", "03/22/2015")
+        c2.add_contact("James", "Thompson", 13472817543, "tofieldya@gmail.com", "Design Bright", "Web Developer", "02/11/2010", "03/22/2015")
         contacts.add_contact(c2)
 
         c3 = Contact()
-        c3.add_contact("Neesa", "King", 12814273819, "Purfect Logos", "Screen Printer", "09/02/2011", "12/10/2015")
+        c3.add_contact("Neesa", "King", 12814273819, "neesa.king@purfectlogos.com", "Purfect Logos", "Screen Printer", "09/02/2011", "12/10/2015")
         contacts.add_contact(c3)
 
         c4 = Contact()
-        c4.add_contact("Daryl", "Perkins", 13247561821, "K-L Mfg. Co.", "Manager", "08/17/2013", "07/22/2016")
+        c4.add_contact("Daryl", "Perkins", 13247561821, "dperkins@klmfg.com", "K-L Mfg. Co.", "Manager", "08/17/2013", "07/22/2016")
         contacts.add_contact(c4)
 
         c5 = Contact()
-        c5.add_contact("Maria", "Joynes", 12738539238, "Coldwell Banker", "Marketing Director", "04/22/2010", "09/12/2011")
+        c5.add_contact("Maria", "Joynes", 12738539238, "maria.joynes@cbnw.com", "Coldwell Banker", "Marketing Director", "04/22/2010", "09/12/2011")
         contacts.add_contact(c5)
 
         self.response.write('Hello world!')

@@ -6,6 +6,7 @@ class Contact(object):
         self.__first_name = ''
         self.__last_name = ''
         self.__phone_number = 0
+        self.__email = ''
         self.__company = ''
         self.__title = ''
         self.__first_contact = ''
@@ -45,6 +46,21 @@ class Contact(object):
                 raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s phone number is not the correct length. You entereted " + str(phone_number) + ". Please enter 11 digits.")
         else:
             raise TypeError("Your contact " + self.__first_name + " " + self.__last_name + "'s phone number is not a number. You entered " + str(phone_number) + ". Please enter only numbers.")
+
+    @property
+    def email(self):
+        return self.__email
+
+    @email.setter
+    def email(self, email):
+        pattern = re.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
+        if isinstance(email, basestring):
+            if pattern.match(email):
+                self.__email = email
+            else: 
+                raise ValueError("Your contact " + self.__first_name + " " + self.__last_name + "'s email does not mat the approved format. You entered " + str(email) + " for the email. Please enter a valid email.")
+        else:
+            raise TypeError("Your contact " + self.__first_name + " " + self.__last_name + "'s email is not a string. You entered " + str(email) + " for the email. Please enter only a string.")
 
     @property
     def company(self):
@@ -101,10 +117,11 @@ class Contact(object):
     def needs_contact(self):
         return self.__needs_contact
 
-    def add_contact(self, first_name, last_name, phone_number, company, title, first_contact, last_contact):
+    def add_contact(self, first_name, last_name, phone_number, email, company, title, first_contact, last_contact):
         self.first_name = first_name
         self.last_name = last_name
         self.phone_number = phone_number
+        self.email = email
         self.company = company
         self.title = title
         self.first_contact = first_contact
