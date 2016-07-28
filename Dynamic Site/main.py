@@ -42,6 +42,7 @@ Dynamic Site
 import webapp2
 from data import Contact
 from lib import contactLib
+from pages import Page
 import datetime
 
 class MainHandler(webapp2.RequestHandler):
@@ -69,7 +70,15 @@ class MainHandler(webapp2.RequestHandler):
         c5.add_contact("Maria", "Joynes", 12738539238, "maria.joynes@cbnw.com", "Coldwell Banker", "Marketing Director", "04/22/2010", "09/12/2011")
         contacts.add_contact(c5)
 
-        self.response.write('Hello world!')
+        if self.request.GET:
+            pass
+        else:
+            page = Page()
+            page.title = "Contacts"
+            page.css = "style.css"
+            page.h1 = page.title
+
+        self.response.write(page.html)
 
         
 

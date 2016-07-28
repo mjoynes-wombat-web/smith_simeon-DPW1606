@@ -19,6 +19,10 @@ class Page(object):
     {self.main}
 </body>
         '''
+        self.__header_temp = '''
+        <header>
+            <h1>{self.h1}</h1>
+        </header>'''
         self.__header = ''
         self.__main = ''
         self.__title = ''
@@ -26,6 +30,7 @@ class Page(object):
         self.__head = ''
         self.__html = ''
         self.__body = ''
+        self.__h1 = ''
 
     @property
     def html(self):
@@ -41,6 +46,11 @@ class Page(object):
     def body(self):
         self.__body = self.__body_temp.format(**locals())
         return self.__body
+
+    @property
+    def header(self):
+        self.__header = self.__header_temp.format(**locals())
+        return self.__header
 
     @property
     def title(self):
@@ -59,17 +69,21 @@ class Page(object):
         self.__css = css
 
     @property
-    def header(self):
-        return self.__header
-
-    @header.setter
-    def header(self, header):
-        self.__header = header
-
-    @property
     def main(self):
         return self.__main
 
     @main.setter
     def main(self, main):
         self.__main = main
+
+    @property
+    def h1(self):
+        return self.__h1
+
+    @h1.setter
+    def h1(self, h1):
+        self.__h1 = h1
+
+class contactPage(Page):
+    def __init__(self):
+        Page.__init__(self)
