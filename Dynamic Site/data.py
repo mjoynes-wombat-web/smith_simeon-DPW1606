@@ -50,16 +50,16 @@ class DataMultiClass(Data):
         self.contacts.add_contact(c1)
 
         c2 = jthompsonContact()
-        self.contacts.add_contact(c1)
+        self.contacts.add_contact(c2)
 
         c3 = nkingContact()
-        self.contacts.add_contact(c1)
+        self.contacts.add_contact(c3)
 
         c4 = dperkinsContact()
-        self.contacts.add_contact(c1)
+        self.contacts.add_contact(c4)
 
         c5 = mjoynesContact()
-        self.contacts.add_contact(c1)
+        self.contacts.add_contact(c5)
 
 class Contact(object):
     def __init__(self):

@@ -48,7 +48,8 @@ import datetime
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-        data = DataMultiObject()
+        #data = DataMultiObject()
+        data = DataMultiClass()
         
         if self.request.GET:
             page = contactPage()
