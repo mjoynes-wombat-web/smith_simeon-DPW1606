@@ -40,7 +40,7 @@ Dynamic Site
 #!Unique and Original
 
 import webapp2
-from data import Contact
+from data import Contact, DataMultiObject, DataMultiClass
 from lib import contactLib
 from pages import Page, mainPage, contactPage
 import datetime
@@ -48,30 +48,11 @@ import datetime
 class MainHandler(webapp2.RequestHandler):
     def get(self):
 
-        contacts = contactLib()
-
-        c1 = Contact()
-        c1.add_contact("Simeon", "Smith", 15092806173, "smsmith1@fullsail.edu", "Wombat Web Design", "Owner/Designer", "11/15/1988", "07/25/2016")
-        contacts.add_contact(c1)
-
-        c2 = Contact()
-        c2.add_contact("James", "Thompson", 13472817543, "tofieldya@gmail.com", "Design Bright", "Web Developer", "02/11/2010", "03/22/2015")
-        contacts.add_contact(c2)
-
-        c3 = Contact()
-        c3.add_contact("Neesa", "King", 12814273819, "neesa.king@purfectlogos.com", "Purfect Logos", "Screen Printer", "09/02/2011", "12/10/2015")
-        contacts.add_contact(c3)
-
-        c4 = Contact()
-        c4.add_contact("Daryl", "Perkins", 13247561821, "dperkins@klmfg.com", "K-L Mfg. Co.", "Manager", "08/17/2013", "07/22/2016")
-        contacts.add_contact(c4)
-
-        c5 = Contact()
-        c5.add_contact("Maria", "Joynes", 12738539238, "maria.joynes@cbnw.com", "Coldwell Banker", "Marketing Director", "04/22/2010", "09/12/2011")
-        contacts.add_contact(c5)
-
+        data = DataMultiObject()
+        
         if self.request.GET:
-            for c in contacts.list:
+            page = contactPage()
+            for c in data.contacts.list:
                 if self.request.GET['contact_name'] == c.first_name + ' ' + c.last_name:
                     page = contactPage()
                     page.title = c.first_name + ' ' + c.last_name + " - Contacts"
