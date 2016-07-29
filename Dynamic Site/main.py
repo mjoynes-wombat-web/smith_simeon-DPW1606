@@ -67,7 +67,7 @@ class MainHandler(webapp2.RequestHandler):
             page.title = "Contacts"
             page.css = "style.css"
             page.h1 = page.title
-            for c in contacts.list:
+            for c in data.contacts.list:
                 page.create_contact(c.first_name, c.last_name)
                 print page.contact_list
             page.main_content = page.contact_list
